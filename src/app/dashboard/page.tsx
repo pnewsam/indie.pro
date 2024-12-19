@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
 
 import { AddNewPropertyFlow } from "./_components/AddNewPropertyFlow";
+import { MainContent } from "./_components/MainContent";
 import { PageHeader } from "./_components/PageHeader";
 
 const properties = [
@@ -38,16 +39,18 @@ export default async function DashboardPage() {
           </div>
         }
       />
-      <div className="grid grid-cols-3 gap-4 p-8">
-        {properties.map((property) => (
-          <div
-            key={property.id}
-            className="p-4 border hover:bg-gray-100 rounded-md"
-          >
-            {property.name}
-          </div>
-        ))}
-      </div>
+      <MainContent>
+        <div className="grid grid-cols-3 gap-4">
+          {properties.map((property) => (
+            <div
+              key={property.id}
+              className="p-4 border hover:bg-gray-100 rounded-md"
+            >
+              {property.name}
+            </div>
+          ))}
+        </div>
+      </MainContent>
     </div>
   );
 }

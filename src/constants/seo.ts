@@ -1,6 +1,6 @@
 export const SEO = {
   title:
-    "Indie.Pro | The dead-simple website builder for independent professionals.",
+    "Indie Pro Websites | The dead-simple website builder for independent professionals.",
   h1: "A Professional Website That Works As Hard As You Do",
   shortDescription:
     "The dead-simple website builder for independent professionals.",

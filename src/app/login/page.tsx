@@ -24,7 +24,9 @@ export default function LoginPage() {
         </Link>
       </div>
       <div className="flex flex-col items-center justify-center border shadow-xl rounded-lg p-12">
-        <h1 className="text-2xl font-bold mb-2">Log in to Indie.Pro</h1>
+        <h1 className="text-2xl font-bold mb-2">
+          Log in to Indie Pro Websites
+        </h1>
         <p className="text-base text-gray-600 mb-8">
           Log in to continue building your website.
         </p>

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: SEO.title,
     description: SEO.shortDescription,
     url: "https://indie.pro",
-    siteName: "Indie.Pro",
+    siteName: "Indie Pro Websites",
     images: [
       {
         url: "https://indie.pro/og-image.jpg", // Update with your actual OG image path

@@ -1,8 +1,10 @@
-import Link from "next/link";
 import { Eye, MoveRight } from "lucide-react";
+import Link from "next/link";
+
+import { cn } from "@/lib/utils";
+
 import { Container } from "./Container";
 import { buttonVariants } from "./ui/button";
-import { cn } from "@/lib/utils";
 
 export function MarketingNavbar() {
   return (
@@ -10,10 +12,10 @@ export function MarketingNavbar() {
       <Container className="py-4">
         <nav className="flex items-center justify-between gap-4">
           <Link
-            className="text-xl font-bold transition-colors hover:text-gray-600"
+            className="text-lg font-bold transition-colors hover:text-gray-600"
             href="/"
           >
-            Indie.Pro
+            Indie Pro Websites
           </Link>
           {/* <div className="flex items-center gap-4">
             <Link
@@ -29,7 +31,7 @@ export function MarketingNavbar() {
             <Link
               className={cn(
                 buttonVariants({ variant: "outline" }),
-                "group gap-2"
+                "group gap-2",
               )}
               href="/demo"
             >
@@ -39,7 +41,7 @@ export function MarketingNavbar() {
             <Link
               className={cn(
                 buttonVariants({ variant: "default" }),
-                "group gap-2"
+                "group gap-2",
               )}
               href="/login"
             >

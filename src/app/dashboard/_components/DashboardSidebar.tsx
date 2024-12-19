@@ -1,13 +1,5 @@
 import Link from "next/link";
 
-import { logout } from "@/app/actions/auth";
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import {
   Sidebar,
   SidebarContent,
@@ -23,7 +15,7 @@ export function DashboardSidebar() {
   return (
     <Sidebar>
       <SidebarHeader className="p-4 border-b h-16">
-        <h1 className="text-lg font-bold">Indie.Pro</h1>
+        <h1 className="text-lg font-bold">Indie Pro Websites</h1>
       </SidebarHeader>
       <SidebarContent className="p-2">
         <SidebarGroup>
