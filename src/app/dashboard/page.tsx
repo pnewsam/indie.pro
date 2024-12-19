@@ -1,9 +1,8 @@
-import { Plus } from "lucide-react";
 import { redirect } from "next/navigation";
 
-import { Button } from "@/components/ui/button";
 import { createClient } from "@/utils/supabase/server";
 
+import { AddNewPropertyFlow } from "./_components/AddNewPropertyFlow";
 import { PageHeader } from "./_components/PageHeader";
 
 const properties = [
@@ -34,15 +33,17 @@ export default async function DashboardPage() {
       <PageHeader
         title="Dashboard"
         actions={
-          <Button>
-            <Plus className="w-4 h-4" />
-            Add new property
-          </Button>
+          <div className="flex gap-2">
+            <AddNewPropertyFlow />
+          </div>
         }
       />
       <div className="grid grid-cols-3 gap-4 p-8">
         {properties.map((property) => (
-          <div key={property.id} className="p-4 bg-gray-100 rounded-md">
+          <div
+            key={property.id}
+            className="p-4 border hover:bg-gray-100 rounded-md"
+          >
             {property.name}
           </div>
         ))}

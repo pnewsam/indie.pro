@@ -1,11 +1,12 @@
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { FormField } from "@/components/FormField";
 import { MoveLeft, MoveRight, UserPlus } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+
 import { login, signup } from "@/app/actions/auth";
+import { FormField } from "@/components/FormField";
+import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 
 export default function LoginPage() {
   return (
@@ -14,7 +15,7 @@ export default function LoginPage() {
         <Link
           className={cn(
             buttonVariants({ variant: "ghost" }),
-            "text-gray-600 group"
+            "text-gray-600 group",
           )}
           href="/"
         >
@@ -28,11 +29,11 @@ export default function LoginPage() {
           Log in to continue building your website.
         </p>
         <form className="flex flex-col gap-4 w-full">
-          <FormField label="Email">
-            <Input name="email" placeholder="Email" type="email" />
+          <FormField label="Email" name="email">
+            <Input placeholder="Email" type="email" />
           </FormField>
-          <FormField label="Password">
-            <Input name="password" placeholder="Password" type="password" />
+          <FormField label="Password" name="password">
+            <Input placeholder="Password" type="password" />
           </FormField>
           <div>
             <Button formAction={login} className="w-full group mb-2">
