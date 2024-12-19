@@ -1,15 +1,11 @@
-import { PhotoSection } from "@/components/PhotoSection";
-import { Header } from "@/components/Header";
+import { MarketingNavbar } from "@/components/MarketingNavbar";
+import { DemoSection } from "@/components/DemoSection";
 
 export default function Home() {
   return (
     <div className="">
-      <Header />
-      <main>
-        <div className="max-w-screen-lg mx-auto px-4 py-12">
-          <PhotoSection />
-        </div>
-      </main>
+      <MarketingNavbar />
+      <DemoSection />
     </div>
   );
 }
