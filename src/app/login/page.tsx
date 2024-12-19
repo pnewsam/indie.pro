@@ -30,10 +30,10 @@ export default function LoginPage() {
         </p>
         <form className="flex flex-col gap-4 w-full">
           <FormField label="Email" name="email">
-            <Input placeholder="Email" type="email" />
+            <Input placeholder="Email" type="email" name="email" />
           </FormField>
           <FormField label="Password" name="password">
-            <Input placeholder="Password" type="password" />
+            <Input placeholder="Password" type="password" name="password" />
           </FormField>
           <div>
             <Button formAction={login} className="w-full group mb-2">

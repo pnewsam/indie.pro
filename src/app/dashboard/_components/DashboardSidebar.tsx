@@ -1,8 +1,13 @@
-import { LogOut } from "lucide-react";
 import Link from "next/link";
 
 import { logout } from "@/app/actions/auth";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Sidebar,
   SidebarContent,
@@ -11,6 +16,8 @@ import {
   SidebarHeader,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+
+import { UserMenu } from "./UserMenu";
 
 export function DashboardSidebar() {
   return (
@@ -39,12 +46,7 @@ export function DashboardSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <form className="w-full" action={logout}>
-          <Button className="w-full" variant="outline">
-            <LogOut className="w-4 h-4" />
-            Logout
-          </Button>
-        </form>
+        <UserMenu />
       </SidebarFooter>
     </Sidebar>
   );

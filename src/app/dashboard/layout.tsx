@@ -4,6 +4,7 @@ import { Dialog } from "@/components/ui/dialog";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 import { DashboardSidebar } from "./_components/DashboardSidebar";
+import { UserProvider } from "./_contexts/UserProvider";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -16,17 +17,15 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="">
+    <UserProvider>
       <SidebarProvider defaultOpen={true}>
-        <Dialog>
-          <div className="grid grid-cols-[auto_1fr]">
-            <DashboardSidebar />
-            <main className="min-h-screen w-[calc(100vw-256px)] flex-grow shrink-0">
-              {children}
-            </main>
-          </div>
-        </Dialog>
+        <div className="grid grid-cols-[auto_1fr]">
+          <DashboardSidebar />
+          <main className="min-h-screen w-[calc(100vw-256px)] flex-grow shrink-0">
+            {children}
+          </main>
+        </div>
       </SidebarProvider>
-    </div>
+    </UserProvider>
   );
 }
