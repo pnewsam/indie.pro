@@ -1,11 +1,15 @@
 import { MarketingNavbar } from "@/components/MarketingNavbar";
 import { DemoSection } from "@/components/DemoSection";
+import { HeroSection } from "@/components/HeroSection";
 
 export default function Home() {
   return (
     <div className="">
       <MarketingNavbar />
-      <DemoSection />
+      <main>
+        <HeroSection />
+        <DemoSection />
+      </main>
     </div>
   );
 }

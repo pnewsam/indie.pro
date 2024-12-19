@@ -9,10 +9,13 @@ export function MarketingNavbar() {
     <div className="flex justify-between items-center border-b border-gray-200">
       <Container className="py-4">
         <nav className="flex items-center justify-between gap-4">
-          <Link className="text-xl font-bold hover:text-gray-600" href="/">
+          <Link
+            className="text-xl font-bold transition-colors hover:text-gray-600"
+            href="/"
+          >
             Indie.Pro
           </Link>
-          <div className="flex items-center gap-4">
+          {/* <div className="flex items-center gap-4">
             <Link
               className={cn(
                 "text-sm px-4 py-2 transition-colors hover:bg-gray-100 rounded-full"
@@ -21,7 +24,7 @@ export function MarketingNavbar() {
             >
               Pricing
             </Link>
-          </div>
+          </div> */}
           <div>
             <Link
               className={cn(

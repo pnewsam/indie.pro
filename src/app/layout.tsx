@@ -8,7 +8,7 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: "Indie.Pro",
-  description: "Simple, Beautiful Websites for Independent Professionals.",
+  description: "The dead-simple website builder for independent professionals.",
 };
 
 export default function RootLayout({
