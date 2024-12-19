@@ -25,7 +25,7 @@ export function MarketingNavbar() {
               Pricing
             </Link>
           </div> */}
-          <div>
+          <div className="inline-flex items-center gap-4">
             <Link
               className={cn(
                 buttonVariants({ variant: "outline" }),
@@ -34,6 +34,16 @@ export function MarketingNavbar() {
               href="/demo"
             >
               View Demo
+              <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              className={cn(
+                buttonVariants({ variant: "default" }),
+                "group gap-2"
+              )}
+              href="/login"
+            >
+              Log in
               <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
