@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRightIcon } from "lucide-react";
+import { Eye, MoveRight } from "lucide-react";
 import { Container } from "./Container";
 import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
@@ -34,7 +34,7 @@ export function MarketingNavbar() {
               href="/demo"
             >
               View Demo
-              <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <Eye className="w-4 h-4" />
             </Link>
             <Link
               className={cn(
@@ -44,7 +44,7 @@ export function MarketingNavbar() {
               href="/login"
             >
               Log in
-              <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </nav>

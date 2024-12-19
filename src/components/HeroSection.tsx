@@ -1,19 +1,19 @@
 import { Container } from "./Container";
 import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
-import { ArrowRightIcon } from "lucide-react";
+import { Eye, MoveRight } from "lucide-react";
 import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="py-12">
-      <Container className="flex flex-col items-center justify-center max-w-4xl">
-        <h1 className="text-5xl/tight font-bold text-center mb-4">
-          You Need a Website.
+    <section className="pb-16 pt-24">
+      <Container className="flex flex-col items-center justify-center">
+        <h1 className="text-3xl md:text-5xl/tight font-bold text-center max-w-screen-md mb-4">
+          Make Your Website an Asset.
           <br />
-          It Doesn't Have to Be Complicated.
+          Not a Liability.
         </h1>
-        <p className="text-lg text-center text-gray-600 mb-4">
+        <p className="text-lg text-center text-gray-600 mb-4 max-w-screen-md">
           As an independent professional, you need a way to showcase your work,
           get more clients, and grow your business. <b>Indie.Pro</b> is the
           easiest way to get your website up and running.
@@ -27,7 +27,7 @@ export function HeroSection() {
             href="/demo"
           >
             View Demo
-            <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <Eye className="w-4 h-4" />
           </Link>
           <Link
             className={cn(
@@ -37,7 +37,7 @@ export function HeroSection() {
             href="/login"
           >
             Log in
-            <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
       </Container>

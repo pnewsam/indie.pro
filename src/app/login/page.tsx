@@ -1,24 +1,50 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FormField } from "@/components/FormField";
+import { MoveLeft, MoveRight, UserPlus } from "lucide-react";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+import { login, signup } from "@/app/actions/auth";
 
 export default function LoginPage() {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
+      <div className="absolute top-4 left-4">
+        <Link
+          className={cn(
+            buttonVariants({ variant: "ghost" }),
+            "text-gray-600 group"
+          )}
+          href="/"
+        >
+          <MoveLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+          Back to Home
+        </Link>
+      </div>
       <div className="flex flex-col items-center justify-center border shadow-xl rounded-lg p-12">
         <h1 className="text-2xl font-bold mb-2">Log in to Indie.Pro</h1>
         <p className="text-base text-gray-600 mb-8">
-          Log in to your Indie.Pro account.
+          Log in to continue building your website.
         </p>
-        <div className="flex flex-col gap-4">
-          <FormField className="w-full" label="Email">
-            <Input placeholder="Email" type="email" />
+        <form className="flex flex-col gap-4 w-full">
+          <FormField label="Email">
+            <Input name="email" placeholder="Email" type="email" />
           </FormField>
-          <FormField className="w-full" label="Password">
-            <Input placeholder="Password" type="password" />
+          <FormField label="Password">
+            <Input name="password" placeholder="Password" type="password" />
           </FormField>
-          <Button className="w-full">Log in</Button>
-        </div>
+          <div>
+            <Button formAction={login} className="w-full group mb-2">
+              Log in
+              <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+            <Button variant="outline" formAction={signup} className="w-full">
+              Sign up
+              <UserPlus className="w-4 h-4" />
+            </Button>
+          </div>
+        </form>
       </div>
     </div>
   );
