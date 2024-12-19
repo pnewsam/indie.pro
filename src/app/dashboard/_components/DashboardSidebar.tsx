@@ -15,18 +15,24 @@ import {
 export function DashboardSidebar() {
   return (
     <Sidebar>
-      <SidebarHeader className="p-4 border-b">
+      <SidebarHeader className="p-4 border-b h-16">
         <h1 className="text-lg font-bold">Indie.Pro</h1>
       </SidebarHeader>
       <SidebarContent className="p-2">
         <SidebarGroup>
-          <SidebarMenuItem className="flex items-center gap-2 p-2 rounded-md hover:bg-gray-100">
-            <Link className="w-full" href="/dashboard">
+          <SidebarMenuItem className="flex">
+            <Link
+              className="w-full p-2 rounded-md hover:bg-gray-100"
+              href="/dashboard"
+            >
               Dashboard
             </Link>
           </SidebarMenuItem>
-          <SidebarMenuItem className="flex items-center gap-2 p-2 rounded-md hover:bg-gray-100">
-            <Link className="w-full" href="/dashboard/settings">
+          <SidebarMenuItem className="flex">
+            <Link
+              className="w-full p-2 rounded-md hover:bg-gray-100"
+              href="/dashboard/settings"
+            >
               Settings
             </Link>
           </SidebarMenuItem>

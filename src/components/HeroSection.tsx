@@ -1,28 +1,27 @@
-import { Container } from "./Container";
-import { buttonVariants } from "./ui/button";
-import { cn } from "@/lib/utils";
 import { Eye, MoveRight } from "lucide-react";
 import Link from "next/link";
+
+import { SEO } from "@/constants/seo";
+import { cn } from "@/lib/utils";
+
+import { Container } from "./Container";
+import { buttonVariants } from "./ui/button";
 
 export function HeroSection() {
   return (
     <section className="pb-16 pt-24">
       <Container className="flex flex-col items-center justify-center">
         <h1 className="text-3xl md:text-5xl/tight font-bold text-center max-w-screen-md mb-4">
-          Make Your Website an Asset.
-          <br />
-          Not a Liability.
+          {SEO.h1}
         </h1>
         <p className="text-lg text-center text-gray-600 mb-4 max-w-screen-md">
-          As an independent professional, you need a way to showcase your work,
-          get more clients, and grow your business. <b>Indie.Pro</b> is the
-          easiest way to get your website up and running.
+          {SEO.longDescription}
         </p>
         <div className="inline-flex items-center gap-4">
           <Link
             className={cn(
               buttonVariants({ variant: "outline" }),
-              "group gap-2"
+              "group gap-2",
             )}
             href="/demo"
           >
@@ -32,7 +31,7 @@ export function HeroSection() {
           <Link
             className={cn(
               buttonVariants({ variant: "default" }),
-              "group gap-2"
+              "group gap-2",
             )}
             href="/login"
           >
