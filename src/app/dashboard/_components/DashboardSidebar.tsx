@@ -1,3 +1,8 @@
+import { LogOut } from "lucide-react";
+import Link from "next/link";
+
+import { logout } from "@/app/actions/auth";
+import { Button } from "@/components/ui/button";
 import {
   Sidebar,
   SidebarContent,
@@ -6,10 +11,6 @@ import {
   SidebarHeader,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { logout } from "@/app/actions/auth";
-import { Button } from "@/components/ui/button";
-import { LogOut } from "lucide-react";
-import Link from "next/link";
 
 export function DashboardSidebar() {
   return (
