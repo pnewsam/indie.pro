@@ -1,14 +1,16 @@
 "use client";
 
-import { Loader2, MoveRight, UserPlus } from "lucide-react";
+import { Loader2, MoveRight } from "lucide-react";
 import { useAction } from "next-safe-action/hooks";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { loginUser, signup } from "@/app/actions/auth";
+import { loginUser } from "@/app/actions/auth";
 import { FormField } from "@/components/FormField";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
@@ -19,12 +21,7 @@ export function LoginForm() {
     onSuccess: () => {
       router.push("/dashboard");
     },
-    onError: (error) => {
-      console.log(error);
-    },
   });
-
-  console.log({ result });
 
   return (
     <form className="flex flex-col gap-4 w-full">
@@ -77,23 +74,13 @@ export function LoginForm() {
           <span className="text-gray-500">OR</span>
           <div className="h-px w-full bg-gray-200" />
         </div>
-        <Button
-          variant="outline"
-          // formAction={signup}
-          className="w-full"
-          type="button"
-          onClick={() => {
-            // router.push("/signup");
-          }}
+        <Link
+          className={cn(buttonVariants({ variant: "outline" }), "w-full group")}
+          href="/signup"
         >
-          Sign up
-          <UserPlus className="w-4 h-4" />
-        </Button>
-      </div>
-      <div>
-        {result.serverError && (
-          <p className="text-red-500">{result.serverError}</p>
-        )}
+          <span>Sign up for an account</span>
+          <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+        </Link>
       </div>
     </form>
   );

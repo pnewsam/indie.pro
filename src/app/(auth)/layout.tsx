@@ -4,9 +4,11 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-import { LoginForm } from "./_components/LoginForm";
-
-export default function LoginPage() {
+export default function AuthLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <div className="absolute top-4 left-4">
@@ -21,14 +23,8 @@ export default function LoginPage() {
           Back to Home
         </Link>
       </div>
-      <div className="flex flex-col items-center justify-center border shadow-xl rounded-lg p-12">
-        <h1 className="text-2xl font-bold mb-2">
-          Log in to Indie Pro Websites
-        </h1>
-        <p className="text-base text-gray-600 mb-8">
-          Log in to continue building your website.
-        </p>
-        <LoginForm />
+      <div className="flex flex-col items-center justify-center border shadow-xl rounded-lg p-12 max-w-md w-full">
+        {children}
       </div>
     </div>
   );

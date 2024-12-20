@@ -32,7 +32,6 @@ export const loginUser = actionClient
     }
 
     revalidatePath("/dashboard");
-    redirect("/dashboard");
   });
 
 export const signup = actionClient
@@ -40,17 +39,21 @@ export const signup = actionClient
   .action(async ({ parsedInput: { email, password } }) => {
     const supabase = await createClient();
 
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
     });
 
-    if (error) {
-      redirect("/error");
-    }
+    console.log({ data, error });
 
-    revalidatePath("/", "layout");
-    redirect("/");
+    if (error) {
+      return returnValidationErrors(schema, {
+        email: { _errors: ["Invalid email or password"] },
+      });
+    } else {
+      revalidatePath("/dashboard");
+      return { success: true };
+    }
   });
 
 export const logout = actionClient.action(async () => {
