@@ -51,14 +51,12 @@ export function UserMenu() {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-full">
-          <form className="w-full" action={logout}>
-            <DropdownMenuItem asChild className="w-full">
-              <Button className="w-full" variant="ghost">
-                <LogOut className="w-4 h-4" />
-                Logout
-              </Button>
-            </DropdownMenuItem>
-          </form>
+          <DropdownMenuItem asChild className="w-full">
+            <Button className="w-full" variant="ghost" onClick={() => logout()}>
+              <LogOut className="w-4 h-4" />
+              Logout
+            </Button>
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </Suspense>

@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/lib/supabase/server";
 
 import { AddNewPropertyFlow } from "./_components/AddNewPropertyFlow";
 import { MainContent } from "./_components/MainContent";

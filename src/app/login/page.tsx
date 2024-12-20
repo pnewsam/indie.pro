@@ -1,12 +1,10 @@
-import { MoveLeft, MoveRight, UserPlus } from "lucide-react";
+import { MoveLeft } from "lucide-react";
 import Link from "next/link";
 
-import { login, signup } from "@/app/actions/auth";
-import { FormField } from "@/components/FormField";
-import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+
+import { LoginForm } from "./_components/LoginForm";
 
 export default function LoginPage() {
   return (
@@ -30,24 +28,7 @@ export default function LoginPage() {
         <p className="text-base text-gray-600 mb-8">
           Log in to continue building your website.
         </p>
-        <form className="flex flex-col gap-4 w-full">
-          <FormField label="Email" name="email">
-            <Input placeholder="Email" type="email" name="email" />
-          </FormField>
-          <FormField label="Password" name="password">
-            <Input placeholder="Password" type="password" name="password" />
-          </FormField>
-          <div>
-            <Button formAction={login} className="w-full group mb-2">
-              Log in
-              <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button variant="outline" formAction={signup} className="w-full">
-              Sign up
-              <UserPlus className="w-4 h-4" />
-            </Button>
-          </div>
-        </form>
+        <LoginForm />
       </div>
     </div>
   );

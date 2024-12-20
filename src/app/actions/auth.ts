@@ -1,54 +1,60 @@
 "use server";
 
+import { returnValidationErrors } from "next-safe-action";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { z } from "zod";
 
-import { createClient } from "@/utils/supabase/server";
+import { actionClient } from "@/lib/safe-action";
+import { createClient } from "@/lib/supabase/server";
 
-export async function login(formData: FormData) {
-  const supabase = await createClient();
+const schema = z.object({
+  email: z.string().email(),
+  password: z.string().min(8).max(100),
+});
 
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
-  const data = {
-    email: formData.get("email") as string,
-    password: formData.get("password") as string,
-  };
+export const loginUser = actionClient
+  .schema(schema)
+  .action(async ({ parsedInput: { email, password } }) => {
+    const supabase = await createClient();
 
-  const { error } = await supabase.auth.signInWithPassword(data);
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-  console.log({ data, error });
+    console.log({ data, error });
 
-  if (error) {
-    redirect("/error");
-  }
+    if (error) {
+      return returnValidationErrors(schema, {
+        email: { _errors: ["Invalid email or password"] },
+      });
+    }
 
-  revalidatePath("/", "layout");
-  redirect("/dashboard");
-}
+    revalidatePath("/dashboard");
+    redirect("/dashboard");
+  });
 
-export async function signup(formData: FormData) {
-  const supabase = await createClient();
+export const signup = actionClient
+  .schema(schema)
+  .action(async ({ parsedInput: { email, password } }) => {
+    const supabase = await createClient();
 
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
-  const data = {
-    email: formData.get("email") as string,
-    password: formData.get("password") as string,
-  };
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+    });
 
-  const { error } = await supabase.auth.signUp(data);
+    if (error) {
+      redirect("/error");
+    }
 
-  if (error) {
-    redirect("/error");
-  }
+    revalidatePath("/", "layout");
+    redirect("/");
+  });
 
-  revalidatePath("/", "layout");
-  redirect("/");
-}
-
-export async function logout() {
+export const logout = actionClient.action(async () => {
   const supabase = await createClient();
   await supabase.auth.signOut();
   redirect("/login");
-}
+});
