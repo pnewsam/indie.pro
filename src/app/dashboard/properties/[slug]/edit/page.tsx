@@ -1,11 +1,13 @@
 import { MainContent } from "@/app/dashboard/_components/MainContent";
 import { PageHeader } from "@/app/dashboard/_components/PageHeader";
 
-export default function EditPropertyPage({
+export default async function EditPropertyPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const slug = await params;
+
   return (
     <div>
       <PageHeader title="Edit Property" />
