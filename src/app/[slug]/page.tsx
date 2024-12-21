@@ -2,13 +2,18 @@ import { Header } from "@/components/Header";
 import { PhotoSection } from "@/components/PhotoSection";
 import { createClient } from "@/lib/supabase/server";
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const supabase = await createClient();
+  const slug = await params;
 
   const { data: property } = await supabase
     .from("properties")
     .select("*")
-    .eq("slug", params.slug)
+    .eq("slug", slug)
     .single();
 
   return (

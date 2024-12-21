@@ -7,5 +7,14 @@ export function MainContent({
   children: React.ReactNode;
   className?: string;
 }) {
-  return <div className={cn("flex-1 p-8", className)}>{children}</div>;
+  return (
+    <div
+      className={cn(
+        "flex-1 p-8 bg-neutral-50 min-h-[calc(100vh-64px)]",
+        className,
+      )}
+    >
+      {children}
+    </div>
+  );
 }
