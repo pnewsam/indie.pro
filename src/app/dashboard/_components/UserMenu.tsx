@@ -36,10 +36,10 @@ export function UserMenu() {
                   <AvatarFallback>{user.email?.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="text-sm truncate">
+                  <p className="text-sm max-w-[140px] truncate">
                     {user.user_metadata.name ?? user.email}
                   </p>
-                  <p className="text-xs text-muted-foreground truncate">
+                  <p className="text-xs max-w-[140px] text-muted-foreground truncate">
                     {user.email}
                   </p>
                 </div>
@@ -52,7 +52,11 @@ export function UserMenu() {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-full">
           <DropdownMenuItem asChild className="w-full">
-            <Button className="w-full" variant="ghost" onClick={() => logout()}>
+            <Button
+              className="w-[240px]"
+              variant="ghost"
+              onClick={() => logout()}
+            >
               <LogOut className="w-4 h-4" />
               Logout
             </Button>

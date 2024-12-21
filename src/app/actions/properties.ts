@@ -1,0 +1,31 @@
+"use server";
+
+import { revalidatePath } from "next/cache";
+
+import { actionClient } from "@/lib/safe-action";
+import { createClient } from "@/lib/supabase/server";
+import { propertySchema } from "@/schemas/properties";
+
+export const createProperty = actionClient
+  .schema(propertySchema)
+  .action(async ({ parsedInput: { name } }) => {
+    const supabase = await createClient();
+
+    const { data: user, error: userError } = await supabase.auth.getUser();
+
+    if (userError) {
+      return { error: userError.message };
+    }
+
+    const { data, error } = await supabase.from("properties").insert({
+      name,
+      user_id: user.user.id,
+    });
+
+    if (error) {
+      return { error: error.message };
+    }
+
+    revalidatePath("/dashboard");
+    return { data };
+  });

@@ -1,43 +1,54 @@
-import { Plus } from "lucide-react";
+"use client";
 
-import { FormField } from "@/components/FormField";
+import { Plus } from "lucide-react";
+import { useAction } from "next-safe-action/hooks";
+import { useState } from "react";
+
+import { createProperty } from "@/app/actions/properties";
 import { Button } from "@/components/ui/button";
 import {
-  DialogFooter,
+  Dialog,
+  DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
 
-import { StandardDialog } from "./StandardDialog";
+import {
+  PropertyFormProvider,
+  PropertySchema,
+} from "../_contexts/PropertyFormProvider";
+import { AddNewPropertyForm } from "./AddNewPropertyForm";
 
 export function AddNewPropertyFlow() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const { execute, isPending } = useAction(createProperty, {
+    onSuccess: () => {
+      setIsOpen(false);
+    },
+  });
+
+  const handleSubmit = async (data: PropertySchema) => {
+    execute({ name: data.name });
+  };
+
   return (
-    <StandardDialog
-      trigger={
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogTrigger asChild>
         <Button>
           <Plus className="w-4 h-4" />
           Add new property
         </Button>
-      }
-    >
-      <DialogHeader>
-        <DialogTitle>Add new property</DialogTitle>
-      </DialogHeader>
-      <div className="flex flex-col gap-4">
-        <FormField label="Name" name="name">
-          <Input placeholder="Name" />
-        </FormField>
-        <FormField label="Property address" name="address">
-          <Input placeholder="Property address" />
-        </FormField>
-      </div>
-      <DialogFooter>
-        <Button>
-          <Plus className="w-4 h-4" />
-          Add property
-        </Button>
-      </DialogFooter>
-    </StandardDialog>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Add new property</DialogTitle>
+        </DialogHeader>
+        <PropertyFormProvider>
+          <AddNewPropertyForm onSubmit={handleSubmit} isLoading={isPending} />
+        </PropertyFormProvider>
+      </DialogContent>
+    </Dialog>
   );
 }
