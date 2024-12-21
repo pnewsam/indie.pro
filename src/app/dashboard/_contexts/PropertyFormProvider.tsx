@@ -4,26 +4,22 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm, useFormContext } from "react-hook-form";
 import { z } from "zod";
 
-const schema = z.object({
-  name: z.string().min(1, { message: "Name is required" }),
-});
-
-export type PropertySchema = z.infer<typeof schema>;
+import { Property, propertySchema } from "@/schemas/properties";
 
 export function PropertyFormProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const form = useForm<PropertySchema>({
+  const form = useForm<Property>({
     defaultValues: {
       name: "",
     },
-    resolver: zodResolver(schema),
+    resolver: zodResolver(propertySchema),
     mode: "onChange",
   });
 
   return <FormProvider {...form}>{children}</FormProvider>;
 }
 
-export const usePropertyForm = () => useFormContext<PropertySchema>();
+export const usePropertyForm = () => useFormContext<Property>();

@@ -3,18 +3,16 @@ import { Loader2, Plus } from "lucide-react";
 import { FormFieldRHF } from "@/components/FormFieldRHF";
 import { InputRHF } from "@/components/InputRHF";
 import { Button } from "@/components/ui/button";
+import { Property } from "@/schemas/properties";
 
-import {
-  PropertySchema,
-  usePropertyForm,
-} from "../_contexts/PropertyFormProvider";
+import { usePropertyForm } from "../_contexts/PropertyFormProvider";
 import { useUserContext } from "../_contexts/UserProvider";
 
 export const AddNewPropertyForm = ({
   onSubmit,
   isLoading,
 }: {
-  onSubmit: (data: PropertySchema) => void;
+  onSubmit: (data: Property) => void;
   isLoading: boolean;
 }) => {
   const user = useUserContext();

@@ -14,24 +14,22 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Property } from "@/schemas/properties";
 
-import {
-  PropertyFormProvider,
-  PropertySchema,
-} from "../_contexts/PropertyFormProvider";
+import { PropertyFormProvider } from "../_contexts/PropertyFormProvider";
 import { AddNewPropertyForm } from "./AddNewPropertyForm";
 
 export function AddNewPropertyFlow() {
   const [isOpen, setIsOpen] = useState(false);
 
   const { execute, isPending } = useAction(createProperty, {
-    onSuccess: () => {
+    onSuccess: (data) => {
       setIsOpen(false);
-      toast.success("Property created");
+      toast.success(`Property ${data.input.name} created`);
     },
   });
 
-  const handleSubmit = async (data: PropertySchema) => {
+  const handleSubmit = async (data: Property) => {
     execute({ name: data.name });
   };
 

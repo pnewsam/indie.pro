@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { AddNewPropertyFlow } from "./_components/AddNewPropertyFlow";
 import { MainContent } from "./_components/MainContent";
 import { PageHeader } from "./_components/PageHeader";
+import { PropertyCard } from "./_components/PropertyCard";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -37,12 +38,7 @@ export default async function DashboardPage() {
         <div className="grid grid-cols-3 gap-4">
           {properties &&
             properties.map((property) => (
-              <div
-                key={property.id}
-                className="p-4 border hover:bg-gray-100 rounded-md"
-              >
-                {property.name}
-              </div>
+              <PropertyCard key={property.id} property={property} />
             ))}
         </div>
       </MainContent>

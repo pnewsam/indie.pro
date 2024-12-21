@@ -6,4 +6,4 @@ export const propertySchema = z.object({
   created_at: z.string().datetime().optional(),
 });
 
-export type PropertySchema = z.infer<typeof propertySchema>;
+export type Property = z.infer<typeof propertySchema>;
