@@ -30,3 +30,26 @@ export const createProperty = actionClient
     revalidatePath("/dashboard");
     return { data };
   });
+
+export const updateProperty = actionClient
+  .schema(propertySchema)
+  .action(async ({ parsedInput: { name, slug, id } }) => {
+    const supabase = await createClient();
+
+    const { data, error } = await supabase
+      .from("properties")
+      .update({
+        name,
+        slug,
+      })
+      .eq("id", id);
+
+    console.log({ data, error });
+
+    if (error) {
+      return { error: error.message };
+    }
+
+    revalidatePath("/dashboard");
+    return { data };
+  });

@@ -33,6 +33,8 @@ const getSegments = (pathname: string): { name: string; href: string }[] => {
     pathname.match(dashboardRegex)
   ) {
     return [{ name: "Dashboard", href: "/dashboard" }];
+  } else if (pathname === "/dashboard/settings") {
+    return [{ name: "Settings", href: "/dashboard/settings" }];
   }
 
   return [];
