@@ -21,7 +21,7 @@ export default async function PropertyPage({
         actions={
           <Link
             className={cn(buttonVariants({ variant: "outline" }), "group")}
-            href={`/dashboard/properties/${params.slug}/edit`}
+            href={`/dashboard/properties/${slug}/edit`}
           >
             Edit this property
             <MoveRight className="w-4 h-4 transition-all group-hover:translate-x-1" />
@@ -32,7 +32,7 @@ export default async function PropertyPage({
         <div className="border border-neutral-300 shadow-md rounded-md w-full h-[720px]">
           <iframe
             className="w-full h-full border-none rounded-md"
-            src={`${process.env.BASE_URL}/${params.slug}`}
+            src={`${process.env.BASE_URL}/${slug}`}
             sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
