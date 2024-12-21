@@ -1,11 +1,13 @@
 import {
-  Phone,
-  Mail,
-  Instagram,
   Facebook,
-  Youtube,
+  Instagram,
   Linkedin,
+  Mail,
+  Phone,
+  Youtube,
 } from "lucide-react";
+
+import { Property } from "@/schemas/properties";
 
 const details = {
   name: "Joe Shmoe Plumbing",
@@ -21,7 +23,7 @@ const details = {
   linkedin: "https://www.linkedin.com/joe_shmoe_plumbing",
 };
 
-export const Header = () => {
+export const Header = ({ property }: { property: Property }) => {
   return (
     <header className="border-b-4 border-gray-200">
       <div className="max-w-screen-lg mx-auto px-4">

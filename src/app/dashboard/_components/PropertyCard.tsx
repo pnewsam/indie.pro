@@ -7,7 +7,7 @@ export function PropertyCard({ property }: { property: Property }) {
     <div className="p-4 border hover:bg-gray-100 rounded-md">
       <h4>
         <Link
-          href={`/dashboard/properties/${property.id}`}
+          href={`/dashboard/properties/${property.slug}`}
           className="text-lg font-semibold hover:underline"
         >
           {property.name}
