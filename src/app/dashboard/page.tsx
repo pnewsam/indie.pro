@@ -18,7 +18,8 @@ export default async function DashboardPage() {
   const { data: properties, error: propertiesError } = await supabase
     .from("properties")
     .select("*")
-    .eq("user_id", data.user.id);
+    .eq("user_id", data.user.id)
+    .order("created_at", { ascending: false });
 
   if (propertiesError) {
     console.error(propertiesError);

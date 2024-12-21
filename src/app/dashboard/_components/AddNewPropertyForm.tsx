@@ -30,6 +30,13 @@ export const AddNewPropertyForm = ({
         <FormFieldRHF label="Name" name="name">
           <InputRHF name="name" placeholder="Name" />
         </FormFieldRHF>
+        <FormFieldRHF
+          label="Slug"
+          name="slug"
+          helpText="The slug is the unique identifier for the property. It will be used to generate the URL for the property."
+        >
+          <InputRHF name="slug" placeholder="Slug" />
+        </FormFieldRHF>
       </div>
       <div className="flex justify-end">
         <Button disabled={!isValid || isLoading} onClick={onClick}>

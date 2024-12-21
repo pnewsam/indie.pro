@@ -2,7 +2,6 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm, useFormContext } from "react-hook-form";
-import { z } from "zod";
 
 import { Property, propertySchema } from "@/schemas/properties";
 
@@ -14,6 +13,7 @@ export function PropertyFormProvider({
   const form = useForm<Property>({
     defaultValues: {
       name: "",
+      slug: "",
     },
     resolver: zodResolver(propertySchema),
     mode: "onChange",

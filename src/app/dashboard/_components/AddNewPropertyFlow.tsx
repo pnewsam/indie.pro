@@ -30,7 +30,7 @@ export function AddNewPropertyFlow() {
   });
 
   const handleSubmit = async (data: Property) => {
-    execute({ name: data.name });
+    execute({ name: data.name, slug: data.slug });
   };
 
   return (

@@ -1,4 +1,4 @@
-import { Path, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 import { FormField } from "@/components/FormField";
 
@@ -6,11 +6,15 @@ export function FormFieldRHF({
   children,
   name,
   label,
+  descriptionText,
+  helpText,
   ...rest
 }: {
   children: React.ReactNode;
   name: string;
   label: string;
+  descriptionText?: string;
+  helpText?: string;
   rest?: any;
 }) {
   const {
@@ -23,6 +27,8 @@ export function FormFieldRHF({
       {...register(name)}
       error={errors[name]?.message as string | undefined}
       label={label}
+      descriptionText={descriptionText}
+      helpText={helpText}
       {...rest}
     >
       {children}

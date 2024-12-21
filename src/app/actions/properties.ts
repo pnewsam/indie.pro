@@ -8,7 +8,7 @@ import { propertySchema } from "@/schemas/properties";
 
 export const createProperty = actionClient
   .schema(propertySchema)
-  .action(async ({ parsedInput: { name } }) => {
+  .action(async ({ parsedInput: { name, slug } }) => {
     const supabase = await createClient();
 
     const { data: user, error: userError } = await supabase.auth.getUser();
@@ -19,6 +19,7 @@ export const createProperty = actionClient
 
     const { data, error } = await supabase.from("properties").insert({
       name,
+      slug,
       user_id: user.user.id,
     });
 
