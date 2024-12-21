@@ -3,6 +3,7 @@
 import { Plus } from "lucide-react";
 import { useAction } from "next-safe-action/hooks";
 import { useState } from "react";
+import { toast } from "sonner";
 
 import { createProperty } from "@/app/actions/properties";
 import { Button } from "@/components/ui/button";
@@ -26,6 +27,7 @@ export function AddNewPropertyFlow() {
   const { execute, isPending } = useAction(createProperty, {
     onSuccess: () => {
       setIsOpen(false);
+      toast.success("Property created");
     },
   });
 

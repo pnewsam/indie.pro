@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import { Dialog } from "@/components/ui/dialog";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { Toaster } from "@/components/ui/sonner";
 
 import { DashboardSidebar } from "./_components/DashboardSidebar";
 import { UserProvider } from "./_contexts/UserProvider";
@@ -26,6 +26,7 @@ export default function DashboardLayout({
           </main>
         </div>
       </SidebarProvider>
+      <Toaster />
     </UserProvider>
   );
 }
