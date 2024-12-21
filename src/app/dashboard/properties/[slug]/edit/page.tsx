@@ -6,12 +6,13 @@ export default async function EditPropertyPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const slug = await params;
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
 
   return (
     <div>
       <PageHeader title="Edit Property" />
-      <MainContent>asd</MainContent>
+      <MainContent>{slug}</MainContent>
     </div>
   );
 }

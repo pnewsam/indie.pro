@@ -12,8 +12,8 @@ export default async function PropertyPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const slug = await params;
-
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
   return (
     <div>
       <PageHeader
