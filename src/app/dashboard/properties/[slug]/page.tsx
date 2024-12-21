@@ -7,7 +7,13 @@ import { cn } from "@/lib/utils";
 
 import { MainContent } from "../../_components/MainContent";
 
-export default function PropertyPage({ params }: { params: { slug: string } }) {
+export default async function PropertyPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const slug = await params;
+
   return (
     <div>
       <PageHeader
