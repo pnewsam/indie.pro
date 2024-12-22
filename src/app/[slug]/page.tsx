@@ -1,8 +1,7 @@
 import { notFound } from "next/navigation";
 
-import { Header } from "@/components/Header";
-import { PhotoSection } from "@/components/PhotoSection";
 import { createClient } from "@/lib/supabase/server";
+import { PhotoGridTemplate } from "@/templates/PhotoGridTemplate";
 
 export default async function Page({
   params,
@@ -22,14 +21,5 @@ export default async function Page({
     return notFound();
   }
 
-  return (
-    <div className="">
-      <Header property={property} />
-      <main>
-        <div className="max-w-screen-lg mx-auto px-4 py-12">
-          <PhotoSection />
-        </div>
-      </main>
-    </div>
-  );
+  return <PhotoGridTemplate property={property} />;
 }

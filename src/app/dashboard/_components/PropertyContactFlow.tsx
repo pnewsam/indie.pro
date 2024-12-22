@@ -1,42 +1,30 @@
 "use client";
 
 import { useAction } from "next-safe-action/hooks";
-import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 import { updateProperty } from "@/app/actions/properties";
 import { PropertyFormProvider } from "@/app/dashboard/_contexts/PropertyFormProvider";
 import { Property } from "@/schemas/properties";
 
-import { PropertyDetailsForm } from "./PropertyDetailsForm";
+import { PropertyContactForm } from "./PropertyContactForm";
 
-export function PropertyDetailsFlow({ property }: { property: Property }) {
-  const router = useRouter();
-
+export function PropertyContactFlow({ property }: { property: Property }) {
   const { execute, isPending } = useAction(updateProperty, {
     onSuccess: (data) => {
-      toast.success(`Property ${data.input.name} updated`);
-      if (data.input.slug !== property.slug) {
-        router.push(`/dashboard/properties/${data.input.slug}/edit`);
-      }
+      toast.success(`Property ${property.name} contact details updated`);
     },
   });
 
   const onSubmit = async (data: Property) => {
-    execute({
-      name: data.name,
-      slug: data.slug,
-      id: data.id,
-      short_description: data.short_description,
-      long_description: data.long_description,
-    });
+    execute({ phone: data.phone, email: data.email, id: data.id });
   };
 
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-2xl font-bold">Details</h2>
+      <h2 className="text-2xl font-bold">Contact</h2>
       <PropertyFormProvider property={property}>
-        <PropertyDetailsForm
+        <PropertyContactForm
           onSubmit={onSubmit}
           isLoading={isPending}
           property_id={property.id ?? ""}

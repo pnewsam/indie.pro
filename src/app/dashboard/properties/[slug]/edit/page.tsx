@@ -2,6 +2,7 @@ import { MainContent } from "@/app/dashboard/_components/MainContent";
 import { PageHeader } from "@/app/dashboard/_components/PageHeader";
 import { createClient } from "@/lib/supabase/server";
 
+import { PropertyContactFlow } from "../../../_components/PropertyContactFlow";
 import { PropertyDetailsFlow } from "../../../_components/PropertyDetailsFlow";
 import { PropertySocialsFlow } from "../../../_components/PropertySocialsFlow";
 
@@ -31,6 +32,7 @@ export default async function EditPropertyPage({
       <PageHeader />
       <MainContent className="flex flex-col gap-8">
         <PropertyDetailsFlow property={property} />
+        <PropertyContactFlow property={property} />
         <PropertySocialsFlow property={property} />
       </MainContent>
     </div>

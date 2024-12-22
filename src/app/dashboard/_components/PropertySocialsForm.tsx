@@ -37,6 +37,12 @@ export function PropertySocialsForm({
       <FormFieldRHF name="linkedin" label="LinkedIn">
         <InputRHF name="linkedin" />
       </FormFieldRHF>
+      <FormFieldRHF name="tiktok" label="TikTok">
+        <InputRHF name="tiktok" />
+      </FormFieldRHF>
+      <FormFieldRHF name="youtube" label="Youtube">
+        <InputRHF name="youtube" />
+      </FormFieldRHF>
       <Button disabled={isLoading || !isValid} onClick={onClick}>
         {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Save"}
       </Button>

@@ -6,7 +6,7 @@ const Photo = () => {
   );
 };
 
-export const PhotoSection = () => {
+export const PhotoGridContent = () => {
   return (
     <div className="grid grid-cols-4 items-center gap-4">
       {Array.from({ length: 10 }).map((_, index) => (
