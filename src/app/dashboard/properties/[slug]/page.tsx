@@ -17,7 +17,6 @@ export default async function PropertyPage({
   return (
     <div>
       <PageHeader
-        title="Property"
         actions={
           <Link
             className={cn(buttonVariants({ variant: "outline" }), "group")}

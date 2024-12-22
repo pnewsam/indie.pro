@@ -7,14 +7,13 @@ import { Property, propertySchema } from "@/schemas/properties";
 
 export function PropertyFormProvider({
   children,
+  property,
 }: {
   children: React.ReactNode;
+  property?: Property;
 }) {
   const form = useForm<Property>({
-    defaultValues: {
-      name: "",
-      slug: "",
-    },
+    defaultValues: { ...property },
     resolver: zodResolver(propertySchema),
     mode: "onChange",
   });

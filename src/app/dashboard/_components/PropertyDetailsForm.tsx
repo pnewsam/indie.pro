@@ -2,7 +2,7 @@
 
 import { Loader2 } from "lucide-react";
 
-import { usePropertyDetailsForm } from "@/app/dashboard/_contexts/PropertyDetailsFormProvider";
+import { usePropertyForm } from "@/app/dashboard/_contexts/PropertyFormProvider";
 import { FormFieldRHF } from "@/components/FormFieldRHF";
 import { InputRHF } from "@/components/InputRHF";
 import { Button } from "@/components/ui/button";
@@ -17,12 +17,12 @@ export function PropertyDetailsForm({
   isLoading: boolean;
   property_id: string;
 }) {
-  const { handleSubmit } = usePropertyDetailsForm();
+  const { handleSubmit } = usePropertyForm();
 
   const onClick = handleSubmit(onSubmit);
 
   return (
-    <form className="flex flex-col gap-4 max-w-xl">
+    <form className="flex flex-col gap-4">
       <InputRHF name="id" type="hidden" value={property_id} />
       <FormFieldRHF name="name" label="Name">
         <InputRHF name="name" />

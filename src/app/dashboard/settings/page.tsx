@@ -4,7 +4,7 @@ import { PageHeader } from "../_components/PageHeader";
 export default function SettingsPage() {
   return (
     <div>
-      <PageHeader title="Settings" />
+      <PageHeader />
       <MainContent>
         <div className="flex flex-col gap-2">
           <h2 className="text-lg font-bold">General</h2>

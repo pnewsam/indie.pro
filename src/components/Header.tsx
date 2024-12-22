@@ -34,7 +34,7 @@ export const Header = ({ property }: { property: Property }) => {
             </picture>
           </figure>
           <div className="py-12 flex flex-col items-start gap-4">
-            <h1 className="text-4xl text-center font-bold">{details.name}</h1>
+            <h1 className="text-4xl text-center font-bold">{property?.name}</h1>
             <div className="flex flex-wrap items-center gap-4">
               <a
                 href={`tel:${details.phone}`}

@@ -32,24 +32,45 @@ export const createProperty = actionClient
   });
 
 export const updateProperty = actionClient
-  .schema(propertySchema)
-  .action(async ({ parsedInput: { name, slug, id } }) => {
-    const supabase = await createClient();
-
-    const { data, error } = await supabase
-      .from("properties")
-      .update({
+  .schema(propertySchema.partial())
+  .action(
+    async ({
+      parsedInput: {
         name,
         slug,
-      })
-      .eq("id", id);
+        id,
+        twitter,
+        instagram,
+        facebook,
+        linkedin,
+        youtube,
+        tiktok,
+      },
+    }) => {
+      const supabase = await createClient();
 
-    console.log({ data, error });
+      const { data, error } = await supabase
+        .from("properties")
+        .update({
+          name,
+          slug,
+          twitter,
+          instagram,
+          facebook,
+          linkedin,
+          youtube,
+          tiktok,
+        })
+        .eq("id", id);
 
-    if (error) {
-      return { error: error.message };
-    }
+      console.log({ data, error });
 
-    revalidatePath("/dashboard");
-    return { data };
-  });
+      if (error) {
+        return { error: error.message };
+      }
+
+      revalidatePath("/dashboard");
+      revalidatePath(`/dashboard/properties/${slug}`);
+      return { data };
+    },
+  );

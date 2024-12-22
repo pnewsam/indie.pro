@@ -3,6 +3,7 @@ import { PageHeader } from "@/app/dashboard/_components/PageHeader";
 import { createClient } from "@/lib/supabase/server";
 
 import { PropertyDetailsFlow } from "../../../_components/PropertyDetailsFlow";
+import { PropertySocialsFlow } from "../../../_components/PropertySocialsFlow";
 
 export default async function EditPropertyPage({
   params,
@@ -19,15 +20,18 @@ export default async function EditPropertyPage({
     .eq("slug", slug)
     .single();
 
+  console.log({ property, error });
+
   if (error) {
     throw new Error("Failed to fetch property");
   }
 
   return (
     <div>
-      <PageHeader title="Edit Property" />
-      <MainContent>
+      <PageHeader />
+      <MainContent className="flex flex-col gap-8">
         <PropertyDetailsFlow property={property} />
+        <PropertySocialsFlow property={property} />
       </MainContent>
     </div>
   );

@@ -10,11 +10,17 @@ export default async function Page({
   const supabase = await createClient();
   const slug = await params;
 
-  const { data: property } = await supabase
+  const { data: property, error } = await supabase
     .from("properties")
     .select("*")
     .eq("slug", slug)
     .single();
+
+  console.log({ property, error, slug });
+
+  if (!property) {
+    return <div>Property not found</div>;
+  }
 
   return (
     <div className="">

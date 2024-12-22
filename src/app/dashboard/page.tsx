@@ -28,7 +28,6 @@ export default async function DashboardPage() {
   return (
     <div>
       <PageHeader
-        title="Dashboard"
         actions={
           <div className="flex gap-2">
             <AddNewPropertyFlow />

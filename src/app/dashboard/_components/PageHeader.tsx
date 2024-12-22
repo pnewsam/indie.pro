@@ -17,7 +17,7 @@ const getSegments = (pathname: string): { name: string; href: string }[] => {
       { name: "Dashboard", href: "/dashboard" },
       { name: propertySlug, href: `/dashboard/properties/${propertySlug}` },
       {
-        name: "Edit Property",
+        name: "Edit",
         href: `/dashboard/properties/${propertySlug}/edit`,
       },
     ];
@@ -40,13 +40,7 @@ const getSegments = (pathname: string): { name: string; href: string }[] => {
   return [];
 };
 
-export function PageHeader({
-  title,
-  actions,
-}: {
-  title: string;
-  actions?: React.ReactNode;
-}) {
+export function PageHeader({ actions }: { actions?: React.ReactNode }) {
   const pathname = usePathname();
   const segments = getSegments(pathname);
 
