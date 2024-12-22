@@ -1,3 +1,5 @@
+import { Loader2 } from "lucide-react";
+
 import { FormFieldRHF } from "@/components/FormFieldRHF";
 import { InputRHF } from "@/components/InputRHF";
 import { Button } from "@/components/ui/button";
@@ -12,7 +14,12 @@ export function PropertySocialsForm({
   onSubmit: (data: Property) => void;
   isLoading: boolean;
 }) {
-  const { handleSubmit } = usePropertyForm();
+  const {
+    handleSubmit,
+    formState: { isValid, errors },
+  } = usePropertyForm();
+
+  console.log({ errors, isValid });
 
   const onClick = handleSubmit(onSubmit);
 
@@ -30,8 +37,8 @@ export function PropertySocialsForm({
       <FormFieldRHF name="linkedin" label="LinkedIn">
         <InputRHF name="linkedin" />
       </FormFieldRHF>
-      <Button disabled={isLoading} onClick={onClick}>
-        {isLoading ? "Updating..." : "Update"}
+      <Button disabled={isLoading || !isValid} onClick={onClick}>
+        {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Save"}
       </Button>
     </form>
   );

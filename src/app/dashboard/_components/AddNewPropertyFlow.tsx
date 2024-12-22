@@ -14,7 +14,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { PropertyCreate } from "@/schemas/properties";
+import { Property } from "@/schemas/properties";
 
 import { PropertyFormProvider } from "../_contexts/PropertyFormProvider";
 import { AddNewPropertyForm } from "./AddNewPropertyForm";
@@ -29,7 +29,7 @@ export function AddNewPropertyFlow() {
     },
   });
 
-  const handleSubmit = async (data: PropertyCreate) => {
+  const handleSubmit = async (data: Property) => {
     execute({ name: data.name, slug: data.slug });
   };
 

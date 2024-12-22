@@ -10,19 +10,12 @@ export const propertySchema = z.object({
     .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
       message: "Slug must be lowercase alphanumeric with hyphens",
     }),
-  twitter: z.string().url().optional(),
-  instagram: z.string().url().optional(),
-  facebook: z.string().url().optional(),
-  linkedin: z.string().url().optional(),
-  youtube: z.string().url().optional(),
-  tiktok: z.string().url().optional(),
+  twitter: z.string().url().optional().nullable(),
+  instagram: z.string().url().optional().nullable(),
+  facebook: z.string().url().optional().nullable(),
+  linkedin: z.string().url().optional().nullable(),
+  youtube: z.string().url().optional().nullable(),
+  tiktok: z.string().url().optional().nullable(),
 });
 
 export type Property = z.infer<typeof propertySchema>;
-
-export const propertyCreateSchema = propertySchema.pick({
-  name: true,
-  slug: true,
-});
-
-export type PropertyCreate = z.infer<typeof propertyCreateSchema>;

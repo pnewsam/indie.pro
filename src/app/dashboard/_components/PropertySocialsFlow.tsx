@@ -11,8 +11,8 @@ import { PropertySocialsForm } from "./PropertySocialsForm";
 
 export function PropertySocialsFlow({ property }: { property: Property }) {
   const { execute, isPending } = useAction(updateProperty, {
-    onSuccess: (data) => {
-      toast.success(`Property ${data.input.name} updated`);
+    onSuccess: () => {
+      toast.success(`Property ${property.name} updated`);
     },
   });
 

@@ -30,8 +30,8 @@ export function PropertyDetailsForm({
       <FormFieldRHF name="slug" label="Slug">
         <InputRHF name="slug" />
       </FormFieldRHF>
-      <Button type="submit" onClick={onClick}>
-        {isLoading ? <Loader2 className="w-4 h-4" /> : "Update"}
+      <Button className="w-full" type="submit" onClick={onClick}>
+        {isLoading ? <Loader2 className="w-4 h-4" /> : "Save"}
       </Button>
     </form>
   );
