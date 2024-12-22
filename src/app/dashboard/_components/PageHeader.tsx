@@ -45,7 +45,7 @@ export function PageHeader({ actions }: { actions?: React.ReactNode }) {
   const segments = getSegments(pathname);
 
   return (
-    <div className="w-full p-4 h-16 border-b bg-neutral-50">
+    <div className="w-full p-4 h-16 border-b bg-neutral-100">
       <div className="flex items-center justify-between h-full px-4">
         <div className="flex items-center gap-2">
           {segments.map((segment, index) => (

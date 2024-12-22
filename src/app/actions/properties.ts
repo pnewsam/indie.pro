@@ -36,9 +36,13 @@ export const updateProperty = actionClient
   .action(
     async ({
       parsedInput: {
+        id,
         name,
         slug,
-        id,
+        short_description,
+        long_description,
+        phone,
+        email,
         twitter,
         instagram,
         facebook,
@@ -54,6 +58,10 @@ export const updateProperty = actionClient
         .update({
           name,
           slug,
+          short_description,
+          long_description,
+          phone,
+          email,
           twitter,
           instagram,
           facebook,

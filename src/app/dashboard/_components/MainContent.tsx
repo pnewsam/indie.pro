@@ -10,7 +10,7 @@ export function MainContent({
   return (
     <div
       className={cn(
-        "flex-1 p-8 bg-neutral-50 h-[calc(100vh-64px)] overflow-y-auto",
+        "flex-1 p-8 bg-neutral-100 h-[calc(100vh-64px)] overflow-y-auto",
         className,
       )}
     >
