@@ -1,4 +1,4 @@
-import { MoveRight } from "lucide-react";
+import { ExternalLink, MoveRight } from "lucide-react";
 import Link from "next/link";
 
 import { PageHeader } from "@/app/dashboard/_components/PageHeader";
@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 import { MainContent } from "../../_components/MainContent";
+import { PropertyIframe } from "../../_components/PropertyIframe";
 
 export default async function PropertyPage({
   params,
@@ -28,15 +29,17 @@ export default async function PropertyPage({
         }
       />
       <MainContent className="flex flex-col gap-4">
-        <div className="border border-neutral-300 shadow-md rounded-md w-full h-[720px]">
-          <iframe
-            className="w-full h-full border-none rounded-md"
-            src={`${process.env.BASE_URL}/${slug}`}
-            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+        <div className="flex justify-end gap-4">
+          <Link
+            className={cn(buttonVariants({ variant: "outline" }))}
+            href={`${process.env.BASE_URL}/${slug}`}
+            target="_blank"
+          >
+            View on website
+            <ExternalLink className="w-4 h-4 transition-all" />
+          </Link>
         </div>
+        <PropertyIframe slug={slug} />
       </MainContent>
     </div>
   );
