@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 import { Header } from "@/components/Header";
 import { PhotoSection } from "@/components/PhotoSection";
 import { createClient } from "@/lib/supabase/server";
@@ -8,18 +10,16 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const supabase = await createClient();
-  const slug = await params;
+  const resolvedParams = await params;
 
   const { data: property, error } = await supabase
     .from("properties")
     .select("*")
-    .eq("slug", slug)
+    .eq("slug", resolvedParams.slug)
     .single();
 
-  console.log({ property, error, slug });
-
   if (!property) {
-    return <div>Property not found</div>;
+    return notFound();
   }
 
   return (
