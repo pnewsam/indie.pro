@@ -2,7 +2,7 @@
 
 import { Loader2 } from "lucide-react";
 
-import { usePropertyForm } from "@/app/dashboard/_contexts/PropertyFormProvider";
+import { usePropertyForm } from "@/app/(app)/dashboard/_contexts/PropertyFormProvider";
 import { FormFieldRHF } from "@/components/FormFieldRHF";
 import { InputRHF } from "@/components/InputRHF";
 import { TextareaRHF } from "@/components/TextareaRHF";

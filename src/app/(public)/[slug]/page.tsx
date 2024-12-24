@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
+import { PhotoGridTemplate } from "@/app/(public)/[slug]/_templates/PhotoGridTemplate";
 import { createClient } from "@/lib/supabase/server";
-import { PhotoGridTemplate } from "@/templates/PhotoGridTemplate";
 
 export default async function Page({
   params,

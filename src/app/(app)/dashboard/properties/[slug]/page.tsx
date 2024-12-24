@@ -1,7 +1,7 @@
 import { ExternalLink, MoveRight } from "lucide-react";
 import Link from "next/link";
 
-import { PageHeader } from "@/app/dashboard/_components/PageHeader";
+import { PageHeader } from "@/app/(app)/dashboard/_components/PageHeader";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 

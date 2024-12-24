@@ -1,6 +1,6 @@
+import { PhotoGridContent } from "@/app/(public)/[slug]/_templates/PhotoGridContent";
+import { PhotoGridHeader } from "@/app/(public)/[slug]/_templates/PhotoGridHeader";
 import { Property } from "@/schemas/properties";
-import { PhotoGridContent } from "@/templates/PhotoGridContent";
-import { PhotoGridHeader } from "@/templates/PhotoGridHeader";
 
 export function PhotoGridTemplate({ property }: { property: Property }) {
   return (

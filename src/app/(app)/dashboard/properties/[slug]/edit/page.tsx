@@ -1,5 +1,5 @@
-import { MainContent } from "@/app/dashboard/_components/MainContent";
-import { PageHeader } from "@/app/dashboard/_components/PageHeader";
+import { MainContent } from "@/app/(app)/dashboard/_components/MainContent";
+import { PageHeader } from "@/app/(app)/dashboard/_components/PageHeader";
 import { createClient } from "@/lib/supabase/server";
 
 import { PropertyContactFlow } from "../../../_components/PropertyContactFlow";

@@ -4,8 +4,8 @@ import { useAction } from "next-safe-action/hooks";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
+import { PropertyFormProvider } from "@/app/(app)/dashboard/_contexts/PropertyFormProvider";
 import { updateProperty } from "@/app/actions/properties";
-import { PropertyFormProvider } from "@/app/dashboard/_contexts/PropertyFormProvider";
 import { Property } from "@/schemas/properties";
 
 import { PropertyDetailsForm } from "./PropertyDetailsForm";
