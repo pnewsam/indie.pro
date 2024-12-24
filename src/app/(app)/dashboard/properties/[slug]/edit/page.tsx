@@ -3,6 +3,7 @@ import { PageHeader } from "@/app/(app)/dashboard/_components/PageHeader";
 import { createClient } from "@/lib/supabase/server";
 
 import { PropertyContactFlow } from "../../../_components/PropertyContactFlow";
+import { PropertyDeleteFlow } from "../../../_components/PropertyDeleteFlow";
 import { PropertyDetailsFlow } from "../../../_components/PropertyDetailsFlow";
 import { PropertySocialsFlow } from "../../../_components/PropertySocialsFlow";
 
@@ -34,6 +35,7 @@ export default async function EditPropertyPage({
         <PropertyDetailsFlow property={property} />
         <PropertyContactFlow property={property} />
         <PropertySocialsFlow property={property} />
+        <PropertyDeleteFlow property={property} />
       </MainContent>
     </div>
   );

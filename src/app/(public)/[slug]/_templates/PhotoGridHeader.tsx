@@ -26,7 +26,7 @@ export const PhotoGridHeader = ({ property }: { property: Property }) => {
               {property.phone && (
                 <a
                   href={`tel:${property.phone}`}
-                  className="flex items-center gap-2 text-neutral-600 hover:text-neutral-300"
+                  className="flex items-center gap-2 text-neutral-600 transition-colors hover:text-neutral-300"
                 >
                   <Phone className="w-4 h-4" />
                   <p className="text-base">{property.phone}</p>
@@ -35,7 +35,7 @@ export const PhotoGridHeader = ({ property }: { property: Property }) => {
               {property.email && (
                 <a
                   href={`mailto:${property.email}`}
-                  className="flex items-center gap-2 text-neutral-600 hover:text-neutral-300"
+                  className="flex items-center gap-2 text-neutral-600 transition-colors hover:text-neutral-300"
                 >
                   <Mail className="w-4 h-4" />
                   <p className="">{property.email}</p>
@@ -44,7 +44,7 @@ export const PhotoGridHeader = ({ property }: { property: Property }) => {
               {property.twitter && (
                 <a
                   href={property.twitter}
-                  className="flex items-center gap-2 text-neutral-600 hover:text-neutral-300"
+                  className="flex items-center gap-2 text-neutral-600 transition-colors hover:text-neutral-300"
                 >
                   <Twitter className="w-4 h-4" />
                   <p className="text-base">Twitter</p>
@@ -53,7 +53,7 @@ export const PhotoGridHeader = ({ property }: { property: Property }) => {
               {property.instagram && (
                 <a
                   href={property.instagram}
-                  className="flex items-center gap-2 text-neutral-600 hover:text-neutral-300"
+                  className="flex items-center gap-2 text-neutral-600 transition-colors hover:text-neutral-300"
                 >
                   <Instagram className="w-4 h-4" />
                   <p className="text-base">Instagram</p>
@@ -62,7 +62,7 @@ export const PhotoGridHeader = ({ property }: { property: Property }) => {
               {property.facebook && (
                 <a
                   href={property.facebook}
-                  className="flex items-center gap-2 text-neutral-600 hover:text-neutral-300"
+                  className="flex items-center gap-2 text-neutral-600 transition-colors hover:text-neutral-300"
                 >
                   <Facebook className="w-4 h-4" />
                   <p className="text-base">Facebook</p>
@@ -71,7 +71,7 @@ export const PhotoGridHeader = ({ property }: { property: Property }) => {
               {property.youtube && (
                 <a
                   href={property.youtube}
-                  className="flex items-center gap-2 text-neutral-600 hover:text-neutral-300"
+                  className="flex items-center gap-2 text-neutral-600 transition-colors hover:text-neutral-300"
                 >
                   <Youtube className="w-4 h-4" />
                   <p className="text-base">Youtube</p>
@@ -80,7 +80,7 @@ export const PhotoGridHeader = ({ property }: { property: Property }) => {
               {property.tiktok && (
                 <a
                   href={property.tiktok}
-                  className="flex items-center gap-2 text-neutral-600 hover:text-neutral-300"
+                  className="flex items-center gap-2 text-neutral-600 transition-colors hover:text-neutral-300"
                 >
                   <Youtube className="w-4 h-4" />
                   <p className="text-base">Tiktok</p>

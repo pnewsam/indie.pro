@@ -82,3 +82,23 @@ export const updateProperty = actionClient
       return { data };
     },
   );
+
+export const deleteProperty = actionClient
+  .schema(propertySchema.partial())
+  .action(async ({ parsedInput: { id } }) => {
+    const supabase = await createClient();
+
+    const { data, error } = await supabase
+      .from("properties")
+      .delete()
+      .eq("id", id);
+
+    console.log({ data, error });
+
+    if (error) {
+      return { error: error.message };
+    }
+
+    revalidatePath("/dashboard");
+    return { data };
+  });
