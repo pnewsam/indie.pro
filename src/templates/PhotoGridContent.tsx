@@ -1,7 +1,13 @@
 const Photo = () => {
   return (
     <picture className="w-full h-auto border border-neutral-300 aspect-square bg-gray-200 rounded-md">
-      <img src="/images/profile.jpg" alt="Profile" />
+      <img
+        src="/images/profile.jpg"
+        alt="Profile"
+        className="object-cover"
+        width={300}
+        height={300}
+      />
     </picture>
   );
 };

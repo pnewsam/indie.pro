@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: SEO.title,
     description: SEO.shortDescription,
     images: ["https://indie.pro/twitter-image.jpg"], // Update with your actual Twitter image path
-    creator: "@indie_pro", // Update with your Twitter handle
+    creator: "@_indiepro", // Update with your Twitter handle
   },
   robots: {
     index: true,
