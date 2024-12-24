@@ -5,7 +5,7 @@ import { PhotoGridTemplate } from "@/app/(public)/[slug]/_templates/PhotoGridTem
 import { getPropertyBySlug } from "@/app/actions/properties";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
