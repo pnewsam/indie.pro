@@ -6,6 +6,22 @@ import { actionClient } from "@/lib/safe-action";
 import { createClient } from "@/lib/supabase/server";
 import { propertySchema } from "@/schemas/properties";
 
+export const getPropertyBySlug = async (slug: string) => {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("properties")
+    .select("*")
+    .eq("slug", slug)
+    .single();
+
+  if (error) {
+    console.error(error);
+    return null;
+  }
+
+  return data;
+};
+
 export const createProperty = actionClient
   .schema(propertySchema)
   .action(async ({ parsedInput: { name, slug } }) => {

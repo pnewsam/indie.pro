@@ -15,6 +15,7 @@ export default async function PropertyPage({
 }) {
   const resolvedParams = await params;
   const slug = resolvedParams.slug;
+
   return (
     <div>
       <PageHeader
@@ -35,7 +36,7 @@ export default async function PropertyPage({
             href={`${process.env.BASE_URL}/${slug}`}
             target="_blank"
           >
-            View on website
+            Open in new tab
             <ExternalLink className="w-4 h-4 transition-all" />
           </Link>
         </div>
