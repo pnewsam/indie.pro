@@ -5,98 +5,87 @@ import {
   Mail,
   Phone,
   Twitter,
+  Video,
   Youtube,
 } from "lucide-react";
 
 import { Property } from "@/schemas/properties";
 
+import { SocialLink } from "./SocialLink";
+
 export const PhotoGridHeader = ({ property }: { property: Property }) => {
   return (
     <header className="border-b border-gray-200">
-      <div className="max-w-screen-lg mx-auto px-4">
+      <div className="max-w-screen-lg mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] items-start md:gap-8 py-8 md:py-12">
-          <figure className="border-2 border-neutral-300 min-w-52 w-1/2 md:w-full h-auto aspect-square mx-auto md:mx-0 bg-gray-200">
+          <figure className="border-2 border-neutral-300 min-w-52 w-1/2 md:w-full h-auto aspect-square mx-auto md:mx-0 mb-8 md:mb-0 bg-gray-200">
             <picture>
               <img src="/images/profile.jpg" alt="Profile" />
             </picture>
           </figure>
-          <div className="flex flex-col items-start gap-4">
+          <div className="flex flex-col items-center md:items-start gap-4">
             <h1 className="text-4xl text-center font-bold">{property?.name}</h1>
             <div className="flex flex-wrap items-center gap-4">
               {property.phone && (
-                <a
+                <SocialLink
                   href={`tel:${property.phone}`}
-                  className="flex items-center gap-2 text-neutral-600 transition-colors hover:text-neutral-300"
-                >
-                  <Phone className="w-4 h-4" />
-                  <p className="text-base">{property.phone}</p>
-                </a>
+                  icon={<Phone className="w-4 h-4" />}
+                  label={property.phone}
+                />
               )}
               {property.email && (
-                <a
+                <SocialLink
                   href={`mailto:${property.email}`}
-                  className="flex items-center gap-2 text-neutral-600 transition-colors hover:text-neutral-300"
-                >
-                  <Mail className="w-4 h-4" />
-                  <p className="">{property.email}</p>
-                </a>
+                  icon={<Mail className="w-4 h-4" />}
+                  label={property.email}
+                />
               )}
               {property.twitter && (
-                <a
+                <SocialLink
                   href={property.twitter}
-                  className="flex items-center gap-2 text-neutral-600 transition-colors hover:text-neutral-300"
-                >
-                  <Twitter className="w-4 h-4" />
-                  <p className="text-base">Twitter</p>
-                </a>
+                  icon={<Twitter className="w-4 h-4" />}
+                  label="Twitter"
+                />
               )}
               {property.instagram && (
-                <a
+                <SocialLink
                   href={property.instagram}
-                  className="flex items-center gap-2 text-neutral-600 transition-colors hover:text-neutral-300"
-                >
-                  <Instagram className="w-4 h-4" />
-                  <p className="text-base">Instagram</p>
-                </a>
+                  icon={<Instagram className="w-4 h-4" />}
+                  label="Instagram"
+                />
               )}
               {property.facebook && (
-                <a
+                <SocialLink
                   href={property.facebook}
-                  className="flex items-center gap-2 text-neutral-600 transition-colors hover:text-neutral-300"
-                >
-                  <Facebook className="w-4 h-4" />
-                  <p className="text-base">Facebook</p>
-                </a>
+                  icon={<Facebook className="w-4 h-4" />}
+                  label="Facebook"
+                />
               )}
               {property.youtube && (
-                <a
+                <SocialLink
                   href={property.youtube}
-                  className="flex items-center gap-2 text-neutral-600 transition-colors hover:text-neutral-300"
-                >
-                  <Youtube className="w-4 h-4" />
-                  <p className="text-base">Youtube</p>
-                </a>
+                  icon={<Youtube className="w-4 h-4" />}
+                  label="Youtube"
+                />
               )}
               {property.tiktok && (
-                <a
+                <SocialLink
                   href={property.tiktok}
-                  className="flex items-center gap-2 text-neutral-600 transition-colors hover:text-neutral-300"
-                >
-                  <Youtube className="w-4 h-4" />
-                  <p className="text-base">Tiktok</p>
-                </a>
+                  icon={<Video className="w-4 h-4" />}
+                  label="Tiktok"
+                />
               )}
               {property.linkedin && (
-                <a
+                <SocialLink
                   href={property.linkedin}
-                  className="flex items-center gap-2 underline underline-offset-4 hover:text-blue-500"
-                >
-                  <Linkedin className="w-4 h-4 text-gray-500" />
-                  <p className="text-base text-gray-500">Linkedin</p>
-                </a>
+                  icon={<Linkedin className="w-4 h-4" />}
+                  label="Linkedin"
+                />
               )}
             </div>
-            <p className="text-lg text-gray-500">{property.long_description}</p>
+            <p className="text-lg text-center md:text-left text-gray-500">
+              {property.long_description}
+            </p>
           </div>
         </div>
       </div>

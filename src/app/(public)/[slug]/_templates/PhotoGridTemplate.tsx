@@ -6,7 +6,7 @@ export function PhotoGridTemplate({ property }: { property: Property }) {
   return (
     <div className="">
       <PhotoGridHeader property={property} />
-      <main className="max-w-screen-lg mx-auto px-4 py-12">
+      <main className="max-w-screen-lg mx-auto px-4 md:px-8 py-12">
         <PhotoGridContent />
       </main>
     </div>
