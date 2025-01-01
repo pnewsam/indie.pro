@@ -18,9 +18,13 @@ export const PhotoGridHeader = ({ property }: { property: Property }) => {
     <header className="border-b border-gray-200">
       <div className="max-w-screen-lg mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] items-start md:gap-8 py-8 md:py-12">
-          <figure className="border-2 border-neutral-300 min-w-52 w-1/2 md:w-full h-auto aspect-square mx-auto md:mx-0 mb-8 md:mb-0 bg-gray-200">
+          <figure className="border-2 border-neutral-300 min-w-52 w-1/2 md:w-full md:max-w-52 h-auto aspect-square mx-auto md:mx-0 mb-8 md:mb-0 bg-gray-200">
             <picture>
-              <img src="/images/profile.jpg" alt="Profile" />
+              <img
+                src={property.logo_url ?? "/"}
+                alt="Profile"
+                className="object-cover"
+              />
             </picture>
           </figure>
           <div className="flex flex-col items-center md:items-start gap-4">

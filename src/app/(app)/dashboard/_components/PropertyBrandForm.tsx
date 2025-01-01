@@ -25,8 +25,6 @@ export const PropertyBrandForm = ({
     formState: { isValid },
   } = usePropertyForm();
 
-  console.log({ logoUrl });
-
   // @ts-ignore
   const onClick = handleSubmit(onSubmit);
 
