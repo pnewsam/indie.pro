@@ -52,7 +52,7 @@ export function PageHeader({ actions }: { actions?: React.ReactNode }) {
             <div key={segment.href} className="flex items-center">
               <Link
                 href={segment.href}
-                className="text-xl font-bold hover:text-blue-600"
+                className="text-xl font-bold hover:text-blue-600 truncate max-w-40"
               >
                 {segment.name}
               </Link>
