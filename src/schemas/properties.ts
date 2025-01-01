@@ -44,6 +44,8 @@ export const propertySchema = z.object({
   linkedin: z.string().url().optional().nullable(),
   youtube: z.string().url().optional().nullable(),
   tiktok: z.string().url().optional().nullable(),
+  logo_url: z.string().optional().nullable(),
+  logo: z.any().optional().nullable().default(null),
 });
 
 export type Property = z.infer<typeof propertySchema>;

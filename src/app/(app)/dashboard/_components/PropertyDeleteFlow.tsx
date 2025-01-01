@@ -30,7 +30,6 @@ export const PropertyDeleteFlow = ({ property }: { property: Property }) => {
       setIsOpen(false);
     },
     onError: (error) => {
-      console.log({ error });
       toast.error(error.error.serverError || "An error occurred");
     },
   });

@@ -19,8 +19,6 @@ export function PropertySocialsForm({
     formState: { isValid, errors },
   } = usePropertyForm();
 
-  console.log({ errors, isValid });
-
   const onClick = handleSubmit(onSubmit);
 
   return (

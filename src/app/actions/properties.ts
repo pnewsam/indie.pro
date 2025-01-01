@@ -1,7 +1,9 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { z } from "zod";
 
+import { uploadFile } from "@/lib/cloudflare/r2";
 import { actionClient } from "@/lib/safe-action";
 import { createClient } from "@/lib/supabase/server";
 import { propertySchema } from "@/schemas/properties";
@@ -116,5 +118,30 @@ export const deleteProperty = actionClient
     }
 
     revalidatePath("/dashboard");
+    return { data };
+  });
+
+export const updatePropertyBrand = actionClient
+  .schema(propertySchema.partial().extend({ logo: z.instanceof(File) }))
+  .action(async ({ parsedInput: { id, logo, slug } }) => {
+    const supabase = await createClient();
+
+    const presignedUrl = await uploadFile(logo);
+
+    const { data, error } = await supabase
+      .from("properties")
+      .update({
+        logo_url: presignedUrl,
+      })
+      .eq("id", id);
+
+    console.log({ data, error });
+
+    if (error) {
+      return { error: error.message };
+    }
+
+    revalidatePath("/dashboard");
+    revalidatePath(`/dashboard/properties/${slug}`);
     return { data };
   });
