@@ -1,6 +1,8 @@
+import { Check } from "lucide-react";
 import { notFound } from "next/navigation";
 
 import { getPropertyBySlug } from "@/app/actions/properties";
+import { Badge } from "@/components/ui/badge";
 
 import { Container } from "../_components/container";
 import { CopyableText } from "../_components/copyable-text";
@@ -35,10 +37,41 @@ export default async function Page({ params }: Props) {
           title="Language"
           description="This section provides information about the brand's language."
         >
-          <p className="font-medium mb-2">Tagline</p>
-          <CopyableText className="mb-4" text={""} />
+          <p className="font-medium mb-1">Tagline</p>
+          <p className="text-sm text-muted-foreground mb-2">
+            5-word phrase for business cards, website headers, and other
+            branding materials.
+          </p>
+          <CopyableText className="mb-4" text={property.tagline} />
+
+          <div className="mb-4">
+            <p className="font-medium mb-2">Social Bio</p>
+            <p className="text-sm text-muted-foreground mb-2">
+              150-character bio for social media.
+            </p>
+            <CopyableText className="mb-4" text={""} />
+            <div className="flex items-center gap-2">
+              <Badge
+                variant="outline"
+                className="border-green-500 text-green-500 font-normal gap-1"
+              >
+                <p className="text-xs">Twitter Bio</p>
+                <Check className="w-4 h-4" />
+              </Badge>
+              <Badge
+                variant="outline"
+                className="border-green-500 text-green-500 font-normal gap-1"
+              >
+                <p className="text-xs">Instagram Bio</p>
+                <Check className="w-4 h-4" />
+              </Badge>
+            </div>
+          </div>
 
           <p className="font-medium mb-2">Description</p>
+          <CopyableText className="mb-4" text={property.short_description} />
+
+          <p className="font-medium mb-2">Boilerplate</p>
           <CopyableText
             className="mb-4"
             text={property.long_description ?? ""}

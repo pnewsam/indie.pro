@@ -1,6 +1,9 @@
+import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 
 import { Container } from "@/app/(public)/[slug]/_components/container";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { Property } from "@/schemas/properties";
 
 export const WebsiteFooter = ({ property }: { property: Property }) => {
@@ -13,10 +16,11 @@ export const WebsiteFooter = ({ property }: { property: Property }) => {
           </p>
           <span>
             <Link
-              className="text-gray-500 transition-colors hover:text-gray-700"
+              className={cn(buttonVariants({ variant: "outline" }))}
               href={`/${property.slug}/brand`}
             >
-              Brand Assets
+              Brand
+              <ArrowRightIcon className="w-4 h-4" />
             </Link>
           </span>
         </div>

@@ -14,7 +14,7 @@ export const CopyableText = ({
   return (
     <blockquote
       className={cn(
-        "relative bg-muted border border-border p-4 rounded-md",
+        "relative bg-muted border border-border p-2 rounded-md",
         className,
       )}
     >
