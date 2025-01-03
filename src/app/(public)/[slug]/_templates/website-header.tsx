@@ -11,7 +11,7 @@ import {
 
 import { Property } from "@/schemas/properties";
 
-import { SocialLink } from "./SocialLink";
+import { SocialLink } from "./social-link";
 
 export const WebsiteHeader = ({ property }: { property: Property }) => {
   return (
