@@ -14,7 +14,7 @@ const Photo = () => {
   );
 };
 
-export const PhotoGridContent = ({ property }: { property: Property }) => {
+export const WebsiteContent = ({ property }: { property: Property }) => {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center gap-4">
       {Array.from({ length: 10 }).map((_, index) => (

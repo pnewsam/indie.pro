@@ -7,5 +7,12 @@ export function TextareaRHF({
   ...props
 }: { name: string } & React.ComponentProps<typeof Textarea>) {
   const { register } = useFormContext();
-  return <Textarea {...register(name)} name={name} {...props} />;
+  return (
+    <Textarea
+      className="bg-neutral-50"
+      {...register(name)}
+      name={name}
+      {...props}
+    />
+  );
 }

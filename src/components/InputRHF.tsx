@@ -7,5 +7,5 @@ export function InputRHF({
   ...rest
 }: { name: string } & React.ComponentProps<typeof Input>) {
   const { register } = useFormContext();
-  return <Input {...register(name)} {...rest} />;
+  return <Input className="bg-neutral-50" {...register(name)} {...rest} />;
 }

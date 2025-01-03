@@ -13,7 +13,7 @@ import { Property } from "@/schemas/properties";
 
 import { SocialLink } from "./SocialLink";
 
-export const PhotoGridHeader = ({ property }: { property: Property }) => {
+export const WebsiteHeader = ({ property }: { property: Property }) => {
   return (
     <header className="border-b border-gray-200">
       <div className="max-w-screen-lg mx-auto px-4 md:px-8">

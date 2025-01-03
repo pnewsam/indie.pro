@@ -1,22 +1,13 @@
-import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { PhotoGridTemplate } from "@/app/(public)/[slug]/_templates/PhotoGridTemplate";
 import { getPropertyBySlug } from "@/app/actions/properties";
+
+import { WebsiteContent } from "./_templates/website-content";
+import { WebsiteHeader } from "./_templates/website-header";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = (await params).slug;
-  const property = await getPropertyBySlug(slug);
-
-  return {
-    title: property.name ?? "Indie.Pro",
-    description: property.description ?? "Indie.Pro",
-  };
-}
 
 export default async function Page({ params }: Props) {
   const resolvedParams = await params;
@@ -26,5 +17,12 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  return <PhotoGridTemplate property={property} />;
+  return (
+    <div className="">
+      <WebsiteHeader property={property} />
+      <main className="max-w-screen-lg mx-auto px-4 md:px-8 py-12">
+        <WebsiteContent property={property} />
+      </main>
+    </div>
+  );
 }

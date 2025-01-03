@@ -4,7 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Property } from "@/schemas/properties";
 
-export const PhotoGridNavbar = ({ property }: { property: Property }) => {
+export const WebsiteNavbar = ({ property }: { property: Property }) => {
   return (
     <div className="h-16">
       <div className="fixed h-16 bg-white top-0 left-0 right-0 z-50 flex justify-between items-center border-b">
