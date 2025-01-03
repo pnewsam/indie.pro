@@ -8,7 +8,7 @@ import { PropertyFormProvider } from "@/app/(app)/dashboard/_contexts/PropertyFo
 import { updateProperty } from "@/app/actions/properties";
 import { Property } from "@/schemas/properties";
 
-import { PropertyDetailsForm } from "./PropertyDetailsForm";
+import { PropertyDetailsForm } from "./property-details-form";
 
 export function PropertyDetailsFlow({ property }: { property: Property }) {
   const router = useRouter();
@@ -27,8 +27,9 @@ export function PropertyDetailsFlow({ property }: { property: Property }) {
       name: data.name,
       slug: data.slug,
       id: data.id,
-      tagline: data.tagline,
-      boilerplate: data.boilerplate,
+      phone: data.phone,
+      email: data.email,
+      address: data.address,
     });
   };
 

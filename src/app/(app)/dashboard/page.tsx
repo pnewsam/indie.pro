@@ -3,9 +3,9 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
 import { AddNewPropertyFlow } from "./_components/AddNewPropertyFlow";
-import { MainContent } from "./_components/MainContent";
-import { PageHeader } from "./_components/PageHeader";
-import { PropertyCard } from "./_components/PropertyCard";
+import { MainContent } from "./_components/main-content";
+import { PageHeader } from "./_components/page-header";
+import { PropertyCard } from "./_components/property-card";
 
 export default async function DashboardPage() {
   const supabase = await createClient();

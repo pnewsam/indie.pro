@@ -37,7 +37,12 @@ export const PropertyBrandForm = ({
       <FormFieldRHF name="logo" label="Logo">
         <InputRHF name="logo" type="file" />
       </FormFieldRHF>
-      <Button type="button" disabled={!isValid || isLoading} onClick={onClick}>
+      <Button
+        className="self-start"
+        type="button"
+        disabled={!isValid || isLoading}
+        onClick={onClick}
+      >
         {isLoading ? "Uploading..." : "Upload"}
       </Button>
     </form>

@@ -1,12 +1,12 @@
 import { ExternalLink, MoveRight } from "lucide-react";
 import Link from "next/link";
 
-import { PageHeader } from "@/app/(app)/dashboard/_components/PageHeader";
+import { PageHeader } from "@/app/(app)/dashboard/_components/page-header";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-import { MainContent } from "../../_components/MainContent";
-import { PropertyIframe } from "../../_components/PropertyIframe";
+import { MainContent } from "../../_components/main-content";
+import { PropertyIframe } from "../../_components/property-iframe";
 
 export default async function PropertyPage({
   params,

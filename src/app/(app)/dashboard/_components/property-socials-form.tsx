@@ -23,25 +23,46 @@ export function PropertySocialsForm({
 
   return (
     <form className="flex flex-col gap-4">
-      <FormFieldRHF name="twitter" label="Twitter">
-        <InputRHF name="twitter" />
+      <FormFieldRHF
+        name="twitter"
+        label="Twitter"
+        descriptionText="Your Twitter handle"
+      >
+        <InputRHF name="twitter" placeholder="my_property" />
       </FormFieldRHF>
       <FormFieldRHF name="instagram" label="Instagram">
-        <InputRHF name="instagram" />
+        <InputRHF name="instagram" placeholder="my_property" />
       </FormFieldRHF>
       <FormFieldRHF name="facebook" label="Facebook">
-        <InputRHF name="facebook" />
+        <InputRHF
+          name="facebook"
+          placeholder="https://www.facebook.com/my-property"
+        />
       </FormFieldRHF>
-      <FormFieldRHF name="linkedin" label="LinkedIn">
-        <InputRHF name="linkedin" />
+      <FormFieldRHF
+        name="linkedin"
+        label="LinkedIn"
+        descriptionText="The URL to your LinkedIn page"
+      >
+        <InputRHF
+          name="linkedin"
+          placeholder="https://www.linkedin.com/company/my-property"
+        />
       </FormFieldRHF>
       <FormFieldRHF name="tiktok" label="TikTok">
-        <InputRHF name="tiktok" />
+        <InputRHF name="tiktok" placeholder="my_property" />
       </FormFieldRHF>
       <FormFieldRHF name="youtube" label="Youtube">
-        <InputRHF name="youtube" />
+        <InputRHF
+          name="youtube"
+          placeholder="https://www.youtube.com/channel/my-property"
+        />
       </FormFieldRHF>
-      <Button disabled={isLoading || !isValid} onClick={onClick}>
+      <Button
+        className="self-start"
+        disabled={isLoading || !isValid}
+        onClick={onClick}
+      >
         {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Save"}
       </Button>
     </form>

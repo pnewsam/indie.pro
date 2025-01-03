@@ -1,5 +1,5 @@
-import { MainContent } from "../_components/MainContent";
-import { PageHeader } from "../_components/PageHeader";
+import { MainContent } from "../_components/main-content";
+import { PageHeader } from "../_components/page-header";
 
 export default function SettingsPage() {
   return (

@@ -1,12 +1,11 @@
-import { MainContent } from "@/app/(app)/dashboard/_components/MainContent";
-import { PageHeader } from "@/app/(app)/dashboard/_components/PageHeader";
+import { MainContent } from "@/app/(app)/dashboard/_components/main-content";
+import { PageHeader } from "@/app/(app)/dashboard/_components/page-header";
 import { createClient } from "@/lib/supabase/server";
 
-import { PropertyBrandFlow } from "../../../_components/PropertyBrandFlow";
-import { PropertyContactFlow } from "../../../_components/PropertyContactFlow";
-import { PropertyDeleteFlow } from "../../../_components/PropertyDeleteFlow";
-import { PropertyDetailsFlow } from "../../../_components/PropertyDetailsFlow";
-import { PropertySocialsFlow } from "../../../_components/PropertySocialsFlow";
+import { PropertyDeleteFlow } from "../../../_components/property-delete-flow";
+import { PropertyDetailsFlow } from "../../../_components/property-details-flow";
+import { PropertySocialsFlow } from "../../../_components/property-socials-flow";
+import { PropertyBrandFlow } from "../../../_components/property-visuals-flow";
 
 export default async function EditPropertyPage({
   params,
@@ -33,7 +32,6 @@ export default async function EditPropertyPage({
       <MainContent className="flex flex-col gap-8">
         <PropertyDetailsFlow property={property} />
         <PropertyBrandFlow property={property} />
-        <PropertyContactFlow property={property} />
         <PropertySocialsFlow property={property} />
         <PropertyDeleteFlow property={property} />
       </MainContent>

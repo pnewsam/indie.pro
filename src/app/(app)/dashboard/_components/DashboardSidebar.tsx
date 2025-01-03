@@ -9,7 +9,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
-import { UserMenu } from "./UserMenu";
+import { UserMenu } from "./user-menu";
 
 export function DashboardSidebar() {
   return (

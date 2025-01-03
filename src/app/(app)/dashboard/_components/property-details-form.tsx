@@ -5,7 +5,6 @@ import { Loader2 } from "lucide-react";
 import { usePropertyForm } from "@/app/(app)/dashboard/_contexts/PropertyFormProvider";
 import { FormFieldRHF } from "@/components/FormFieldRHF";
 import { InputRHF } from "@/components/InputRHF";
-import { TextareaRHF } from "@/components/TextareaRHF";
 import { Button } from "@/components/ui/button";
 import { Property } from "@/schemas/properties";
 
@@ -26,26 +25,25 @@ export function PropertyDetailsForm({
     <form className="flex flex-col gap-4">
       <InputRHF name="id" type="hidden" value={property_id} />
       <FormFieldRHF name="name" label="Name">
-        <InputRHF name="name" />
+        <InputRHF name="name" placeholder="Property Name" />
       </FormFieldRHF>
       <FormFieldRHF name="slug" label="Slug">
-        <InputRHF name="slug" />
+        <InputRHF name="slug" placeholder="property-name" />
       </FormFieldRHF>
-      <FormFieldRHF
-        name="tagline"
-        label="Tagline"
-        descriptionText="1-2 sentences"
-      >
-        <TextareaRHF rows={1} name="tagline" />
+
+      <FormFieldRHF name="phone" label="Phone">
+        <InputRHF name="phone" placeholder="+123 456 7890" />
       </FormFieldRHF>
-      <FormFieldRHF
-        name="boilerplate"
-        label="Boilerplate"
-        descriptionText="3-5 sentences"
-      >
-        <TextareaRHF rows={4} name="boilerplate" />
+
+      <FormFieldRHF name="address" label="Address">
+        <InputRHF name="address" placeholder="123 Main St, Anytown, USA" />
       </FormFieldRHF>
-      <Button className="w-full" type="submit" onClick={onClick}>
+
+      <FormFieldRHF name="email" label="Email">
+        <InputRHF name="email" placeholder="hello@example.com" />
+      </FormFieldRHF>
+
+      <Button className="self-start" type="submit" onClick={onClick}>
         {isLoading ? <Loader2 className="w-4 h-4" /> : "Save"}
       </Button>
     </form>

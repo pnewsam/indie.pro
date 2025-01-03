@@ -9,7 +9,7 @@ import { TextareaRHF } from "@/components/TextareaRHF";
 import { Button } from "@/components/ui/button";
 import { Property } from "@/schemas/properties";
 
-export function PropertyContactForm({
+export function PropertyLanguageForm({
   onSubmit,
   isLoading,
   property_id,
@@ -28,14 +28,22 @@ export function PropertyContactForm({
   return (
     <form className="flex flex-col gap-4">
       <InputRHF name="id" type="hidden" value={property_id} />
-      <FormFieldRHF name="phone" label="Phone">
-        <InputRHF name="phone" />
+      <FormFieldRHF
+        name="tagline"
+        label="Tagline"
+        descriptionText="1-2 sentences"
+      >
+        <TextareaRHF rows={1} name="tagline" />
       </FormFieldRHF>
-      <FormFieldRHF name="email" label="Email">
-        <InputRHF name="email" />
+      <FormFieldRHF
+        name="boilerplate"
+        label="Boilerplate"
+        descriptionText="3-5 sentences"
+      >
+        <TextareaRHF rows={4} name="boilerplate" />
       </FormFieldRHF>
       <Button
-        className="w-full"
+        className="self-start"
         type="submit"
         onClick={onClick}
         disabled={isLoading || !isValid}

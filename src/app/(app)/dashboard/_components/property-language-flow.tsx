@@ -7,7 +7,7 @@ import { PropertyFormProvider } from "@/app/(app)/dashboard/_contexts/PropertyFo
 import { updateProperty } from "@/app/actions/properties";
 import { Property } from "@/schemas/properties";
 
-import { PropertyContactForm } from "./PropertyContactForm";
+import { PropertyLanguageForm } from "./property-language-form";
 
 export function PropertyContactFlow({ property }: { property: Property }) {
   const { execute, isPending } = useAction(updateProperty, {
@@ -17,14 +17,18 @@ export function PropertyContactFlow({ property }: { property: Property }) {
   });
 
   const onSubmit = async (data: Property) => {
-    execute({ phone: data.phone, email: data.email, id: data.id });
+    execute({
+      tagline: data.tagline,
+      boilerplate: data.boilerplate,
+      id: data.id,
+    });
   };
 
   return (
     <div className="flex flex-col gap-4">
       <h2 className="text-2xl font-bold">Contact</h2>
       <PropertyFormProvider property={property}>
-        <PropertyContactForm
+        <PropertyLanguageForm
           onSubmit={onSubmit}
           isLoading={isPending}
           property_id={property.id ?? ""}

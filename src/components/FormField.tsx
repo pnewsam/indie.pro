@@ -20,7 +20,9 @@ export function FormField({
 }) {
   return (
     <div className={cn("flex flex-col gap-2", className)}>
-      <Label htmlFor={name}>{label}</Label>
+      <Label className="text-base" htmlFor={name}>
+        {label}
+      </Label>
       {descriptionText && (
         <p className="text-sm text-gray-500">{descriptionText}</p>
       )}
