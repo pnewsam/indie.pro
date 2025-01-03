@@ -12,6 +12,7 @@ import {
 import { Property } from "@/schemas/properties";
 
 import { Container } from "./container";
+import { Heading1 } from "./heading-1";
 import { SocialLink } from "./social-link";
 
 export const WebsiteHeader = ({ property }: { property: Property }) => {
@@ -23,13 +24,13 @@ export const WebsiteHeader = ({ property }: { property: Property }) => {
             <picture>
               <img
                 src={property.logo_url ?? "/"}
-                alt="Profile"
+                alt={property?.name ?? "Profile"}
                 className="object-cover"
               />
             </picture>
           </figure>
           <div className="flex flex-col items-center md:items-start gap-4">
-            <h1 className="text-4xl text-center font-bold">{property?.name}</h1>
+            <Heading1 className="mb-0">{property?.name}</Heading1>
             <div className="flex flex-wrap items-center gap-4">
               {property.phone && (
                 <SocialLink

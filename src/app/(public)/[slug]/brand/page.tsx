@@ -1,10 +1,11 @@
-import { DownloadIcon } from "lucide-react";
 import { notFound } from "next/navigation";
 
 import { getPropertyBySlug } from "@/app/actions/properties";
-import { Button } from "@/components/ui/button";
 
 import { Container } from "../_components/container";
+import { CopyableText } from "../_components/copyable-text";
+import { Heading1 } from "../_components/heading-1";
+import { Heading2 } from "../_components/heading-2";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -17,29 +18,38 @@ export default async function Page({ params }: Props) {
   if (!property) {
     return notFound();
   }
+
   return (
     <div>
       <Container>
-        <h1 className="text-2xl font-bold tracking-tight py-8">Brand Page</h1>
-        <p className="text-lg mb-4">
-          This page provides information about the brand and its products.
-        </p>
-        <div className="flex items-center justify-between gap-2">
-          <p className="text-lg font-medium tracking-tight">Logo</p>
-          <Button variant="outline">
-            Download
-            <DownloadIcon className="w-4 h-4" />
-          </Button>
+        <div className="py-8">
+          <Heading1>Brand</Heading1>
+          <p className="text-base text-muted-foreground">
+            This page provides information about the brand and its products.
+          </p>
         </div>
-        <picture className="w-40 h-auto bg-gray-400">
-          <img
-            src={property.logo_url ?? "/"}
-            alt="Logo"
-            className="object-cover"
-            width={160}
-            height={160}
+        <div className="mb-8">
+          <h2 className="text-2xl font-medium tracking-tight">Messaging</h2>
+          <p className="text-base text-muted-foreground mb-4">
+            This section provides information about the brand&apos;s messaging.
+          </p>
+
+          <p className="font-medium mb-2">Tagline</p>
+          <CopyableText className="mb-4" text={property.brand_voice ?? ""} />
+
+          <p className="font-medium mb-2">Description</p>
+          <CopyableText
+            className="mb-4"
+            text={property.long_description ?? ""}
           />
-        </picture>
+        </div>
+        <div className="mb-8">
+          <Heading2>Brand Assets</Heading2>
+          <p className="text-base text-muted-foreground">
+            This section provides information about the brand&apos;s visual
+            identity.
+          </p>
+        </div>
       </Container>
     </div>
   );
