@@ -32,18 +32,18 @@ export function PropertyDetailsForm({
         <InputRHF name="slug" />
       </FormFieldRHF>
       <FormFieldRHF
-        name="short_description"
-        label="Short Description"
+        name="tagline"
+        label="Tagline"
         descriptionText="1-2 sentences"
       >
-        <TextareaRHF rows={1} name="short_description" />
+        <TextareaRHF rows={1} name="tagline" />
       </FormFieldRHF>
       <FormFieldRHF
-        name="long_description"
-        label="Long Description"
+        name="boilerplate"
+        label="Boilerplate"
         descriptionText="3-5 sentences"
       >
-        <TextareaRHF rows={4} name="long_description" />
+        <TextareaRHF rows={4} name="boilerplate" />
       </FormFieldRHF>
       <Button className="w-full" type="submit" onClick={onClick}>
         {isLoading ? <Loader2 className="w-4 h-4" /> : "Save"}

@@ -90,7 +90,7 @@ export const WebsiteHeader = ({ property }: { property: Property }) => {
               )}
             </div>
             <p className="text-lg text-center md:text-left text-gray-500">
-              {property.long_description}
+              {property.boilerplate}
             </p>
           </div>
         </div>

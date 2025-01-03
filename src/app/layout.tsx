@@ -11,11 +11,11 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: SEO.title,
-  description: SEO.shortDescription,
+  description: SEO.tagline,
   keywords: SEO.keywords,
   openGraph: {
     title: SEO.title,
-    description: SEO.shortDescription,
+    description: SEO.tagline,
     url: "https://indie.pro",
     siteName: "Indie Pro Websites",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: SEO.title,
-    description: SEO.shortDescription,
+    description: SEO.tagline,
     images: ["https://indie.pro/twitter-image.jpg"], // Update with your actual Twitter image path
     creator: "@_indiepro", // Update with your Twitter handle
   },

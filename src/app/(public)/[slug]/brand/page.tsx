@@ -69,13 +69,10 @@ export default async function Page({ params }: Props) {
           </div>
 
           <p className="font-medium mb-2">Description</p>
-          <CopyableText className="mb-4" text={property.short_description} />
+          <CopyableText className="mb-4" text={property.tagline} />
 
           <p className="font-medium mb-2">Boilerplate</p>
-          <CopyableText
-            className="mb-4"
-            text={property.long_description ?? ""}
-          />
+          <CopyableText className="mb-4" text={property.boilerplate ?? ""} />
         </TitledSection>
         <TitledSection
           id="visuals"

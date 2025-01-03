@@ -20,9 +20,7 @@ export default async function Page({ params }: Props) {
   return (
     <div className="">
       <WebsiteHeader property={property} />
-      <main className="max-w-screen-lg mx-auto px-4 md:px-8 py-12">
-        <WebsiteContent property={property} />
-      </main>
+      <WebsiteContent property={property} />
     </div>
   );
 }

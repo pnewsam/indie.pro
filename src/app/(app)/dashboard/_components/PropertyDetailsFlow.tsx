@@ -27,8 +27,8 @@ export function PropertyDetailsFlow({ property }: { property: Property }) {
       name: data.name,
       slug: data.slug,
       id: data.id,
-      short_description: data.short_description,
-      long_description: data.long_description,
+      tagline: data.tagline,
+      boilerplate: data.boilerplate,
     });
   };
 
