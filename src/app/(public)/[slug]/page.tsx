@@ -2,8 +2,8 @@ import { notFound } from "next/navigation";
 
 import { getPropertyBySlug } from "@/app/actions/properties";
 
-import { WebsiteContent } from "./_templates/website-content";
-import { WebsiteHeader } from "./_templates/website-header";
+import { WebsiteContent } from "./_components/website-content";
+import { WebsiteHeader } from "./_components/website-header";
 
 type Props = {
   params: Promise<{ slug: string }>;

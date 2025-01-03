@@ -11,12 +11,13 @@ import {
 
 import { Property } from "@/schemas/properties";
 
+import { Container } from "./container";
 import { SocialLink } from "./social-link";
 
 export const WebsiteHeader = ({ property }: { property: Property }) => {
   return (
     <header className="border-b border-gray-200">
-      <div className="max-w-screen-lg mx-auto px-4 md:px-8">
+      <Container>
         <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] items-start md:gap-8 py-8 md:py-12">
           <figure className="border-2 border-neutral-300 min-w-52 w-1/2 md:w-full md:max-w-52 h-auto aspect-square mx-auto md:mx-0 mb-8 md:mb-0 bg-gray-200">
             <picture>
@@ -92,7 +93,7 @@ export const WebsiteHeader = ({ property }: { property: Property }) => {
             </p>
           </div>
         </div>
-      </div>
+      </Container>
     </header>
   );
 };

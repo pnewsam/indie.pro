@@ -11,14 +11,14 @@ export const WebsiteNavbar = ({ property }: { property: Property }) => {
         <nav className="container max-w-screen-lg px-4 md:px-8 mx-auto flex items-center justify-between gap-2">
           <Link
             className="flex items-center gap-2 text-gray-500 transition-colors duration-300 hover:text-gray-900 font-medium"
-            href="/"
+            href={`/${property.slug}`}
           >
             {property.name}
           </Link>
 
           <Link
             className={cn(buttonVariants({ variant: "outline" }), "")}
-            href="/"
+            href={`/${property.slug}/contact`}
           >
             Contact us
           </Link>

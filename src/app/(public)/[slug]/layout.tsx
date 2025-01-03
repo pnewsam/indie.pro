@@ -1,11 +1,8 @@
 import { Metadata } from "next";
 
-import { WebsiteFooter } from "@/app/(public)/[slug]/_templates/website-footer";
-import { WebsiteHeader } from "@/app/(public)/[slug]/_templates/website-header";
-import { WebsiteNavbar } from "@/app/(public)/[slug]/_templates/website-navbar";
+import { WebsiteFooter } from "@/app/(public)/[slug]/_components/website-footer";
+import { WebsiteNavbar } from "@/app/(public)/[slug]/_components/website-navbar";
 import { getPropertyBySlug } from "@/app/actions/properties";
-
-import { WebsiteContent } from "./_templates/website-content";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -33,7 +30,7 @@ export default async function Layout({
     <div>
       <WebsiteNavbar property={property} />
       {children}
-      <WebsiteFooter />
+      <WebsiteFooter property={property} />
     </div>
   );
 }
